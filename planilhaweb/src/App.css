@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Archivo", sans-serif;
+}
+
+header {
+    width: 100dvw;
+    height: 10dvh;
+    background-color: rgb(41, 41, 41);
+    box-shadow: 1px 1px 5px 1px rgb(170, 170, 170);
+}
+
+.gpi-title {
+    color: white;
+    padding: 16px;
+    font-weight: 200;
+}
+
+.text-1 {
+    padding: 20px;
+    font-size: 1.3rem;
+    font-weight: 100;
+     p {
+        margin-top: 10px;
+        padding: 5px;
+    }
+}
+
+.form-clients {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-left: 40px;
+    border: 1px rgb(97, 97, 97) solid;
+    width: 250px;
+    box-shadow: 1px 1px 3px 1px rgba(63, 63, 63, 0.521);
+}
+
+.search-clients {  
+    display: flex;
+    flex-direction: column;
+    label {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+    input {  min-width: 200px;
+        height: 20px;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.btn-search {
+    margin: auto;
+    min-width: 150px;
+    height: 25px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    background-color: rgb(8, 82, 8);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-search:hover {
+    background-color: rgb(2, 70, 2);
+    scale: 1.013;
+}
+
+.client-list {
+    margin-top: 30px;
+    text-align: center;
+    font-weight: 100;
+    color: black;
+}
+
+th {
+    background-color: rgb(41, 41, 41);
+    color: white;
+    font-weight: 100;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
