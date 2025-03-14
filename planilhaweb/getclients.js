@@ -15,11 +15,11 @@ import Clientes from './clientes';
                     row.innerHTML = `
                         <td>${cliente.cod_cliente}</td>
                         <td>${cliente.nome_cliente}</td>
-                        <td>${cliente.num_cnpj_cpf}</td>
-                        <td>${cliente.acesso_cliente_tipo}</td>
-                        <td>${cliente.acesso_cliente_num}</td>
-                        <td>${cliente.email}</td>
-                        <td>${cliente.telefone}</td>
+                        <td>${cliente.acesso_cliente_teamviewer}</td>
+                        <td>${cliente.senha_acesso_cliente_teamviewer}</td>
+                        <td>${cliente.acesso_cliente_anydesk}</td>
+                        <td>${cliente.senha_acesso_cliente_anydesk}</td>
+                        <td>${cliente.versao_vertis_cliente}</td>
                     `;
                     tableBody.appendChild(row);
                 });
