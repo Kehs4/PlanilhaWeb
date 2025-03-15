@@ -14,7 +14,7 @@ import Clientes from './clientes';
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${cliente.cod_cliente}</td>
-                        <td>${cliente.nome_cliente}</td>
+                        <td id="client-name-id">${cliente.nome_cliente}</td>
                         <td>${cliente.acesso_cliente_teamviewer}</td>
                         <td>${cliente.senha_acesso_cliente_teamviewer}</td>
                         <td>${cliente.acesso_cliente_anydesk}</td>
@@ -27,7 +27,7 @@ import Clientes from './clientes';
                 console.error('Erro ao buscar clientes:', error);
             }
         }
-
         window.onload = getClientes;
 
-export default getClientes
+export default getClientes;
+            
