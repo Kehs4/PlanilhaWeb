@@ -120,3 +120,11 @@ th, td {
     text-align: left;
 }
 
+tr:hover {
+    background-color: rgb(228, 228, 228);
+    cursor: pointer;
+}
+
+.btn-search {
+}
+

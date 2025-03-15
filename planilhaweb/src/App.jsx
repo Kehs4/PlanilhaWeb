@@ -4,7 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Clientes from '../clientes'
 import getClientes from '../getclients'
-import DataTable from 'datatables.net-dt';
+import DataTable from 'datatables.net-dt'
+import getSearch from '../search'
  
 let table = new DataTable('#clientes-table');
 
@@ -28,7 +29,7 @@ function App() {
                 <fieldset>
                 <legend>Dados do Cliente</legend>
                   <label for="client-name">Nome do Cliente</label>
-                  <input type="text" id="client-name" placeholder="Nome do Cliente"></input>
+                  <input type="text" id="client-name-input" placeholder="Nome do Cliente"></input>
                     
                   <label for="client-cod">Código do Cliente</label>
                   <input type="number" id="client-cod" placeholder="Código do Cliente"></input>
@@ -96,7 +97,6 @@ function App() {
                   <label for="client-contact-2">Telefone 2</label>
                   <input type="number" id="client-contact-2" placeholder='Telefone 2'></input>
                 </fieldset>
-                 
                   
               </div>
               
@@ -121,11 +121,12 @@ function App() {
                 <th>Versão Vertis</th>
             </tr>
         </thead>
-        <tbody>
-        
+        <tbody id='tbody-list' onDoubleClick={getSearch}>
+
         </tbody>
+       
+
       </table>
-      
     </>
   )
 }
