@@ -60,48 +60,34 @@ function App() {
 
                   <label for="client-anydesk-password">Senha AnyDesk</label>
                   <input type="text" id="client-anydesk-password" placeholder="Senha do AnyDesk"></input>
+
+                  <label for="client-licences">IP Servidor do Cliente</label>
+                  <input type="text" id="client-ip-server" placeholder="IP"></input>
                 </fieldset>
-
-                <fieldset>
-                  <legend>Dados do Endereço</legend>
-                  <label for="client-address-street">Endereço Logradouro</label>
-                  <input type="text" id="client-address" placeholder="Endereço do cliente"></input>
-
-                  <label for="client-address-number">Número Logradouro</label>
-                  <input type="number" id="client-address-number" placeholder="Número do cliente"></input>
-
-                  <label for="client-address-state">Estado</label>
-                  <input type="text" id="client-address-state" placeholder="Estado do cliente"></input>
-                
-                  <label for="client-address-city">Cidade</label>
-                  <input type="text" id="client-address-city" placeholder="Cidade do cliente"></input>
-
-                  <label for="client-address-district">Bairro</label>
-                  <input type="text" id="client-address-district" placeholder="Bairro do cliente"></input>
-
-                  <label for="client-address-cep">CEP</label>
-                  <input type="number" id="client-address-cep" placeholder="CEP do cliente"></input>
-                </fieldset>  
                   
                 <fieldset>
                   <legend>Contatos</legend>
                   <label for="client-manager">Responsável Unidade</label>
-                  <input type="number" id="client-manager" placeholder='Responsável pela unid.'></input>
+                  <input type="text" id="client-manager" placeholder='Responsável pela unid.'></input>
                   
                   <label for="client-email">E-mail</label>
-                  <input type="number" id="client-email" placeholder='E-mail do cliente'></input>
+                  <input type="text" id="client-email" placeholder='E-mail do Cliente'></input>
                   
+                  <label for="client-ddd">DDD</label>
+                  <input type="text" id="client-ddd" placeholder='DDD do Cliente'></input>
+
                   <label for="client-contact-1">Telefone 1</label>
-                  <input type="number" id="client-contact-1" placeholder='Telefone 1'></input>
+                  <input type="text" id="client-contact-1" placeholder='Telefone 1'></input>
 
                   <label for="client-contact-2">Telefone 2</label>
-                  <input type="number" id="client-contact-2" placeholder='Telefone 2'></input>
+                  <input type="text" id="client-contact-2" placeholder='Telefone 2'></input>
                 </fieldset>
                   
               </div>
               
               <div class="search-clients-buttons">
-                  <button class="btn-close" type="">Fechar</button>
+                  <button class="btn-update" id='btn-update' type=''>Alterar</button>
+                  <button class="btn-close" id='btn-close' type="">Fechar</button>
               </div>
 
           </form>
