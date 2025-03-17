@@ -93,7 +93,6 @@ function App() {
           </form>
       </div>
         
-
         <h1 class="client-list">Lista de Clientes Vertis</h1>
       <table id="clientes-table">
         <thead>

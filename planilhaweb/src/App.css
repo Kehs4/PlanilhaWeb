@@ -42,6 +42,7 @@ header {
     padding: 5px;
 }
 
+
 .search-clients {  
     display: flex;
     margin-bottom: 8px;
@@ -143,5 +144,3 @@ tr:hover {
     background-color: rgb(228, 228, 228);
     cursor: pointer;
 }
-
-
