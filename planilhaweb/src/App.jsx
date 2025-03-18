@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Clientes from '../clientes'
 import getClientes from '../getclients'
 import DataTable from 'datatables.net-dt'
 import getSearch from '../search'
+import switchModal from '../modal'
  
 let table = new DataTable('#clientes-table');
 
@@ -24,15 +23,16 @@ function App() {
         </header>
 
       <div class="div-form-clients">
+        <div class="div-form-clients-content">
           <form class="form-clients" action="">
               <div class="search-clients">
                 <fieldset>
                 <legend>Dados do Cliente</legend>
                   <label for="client-name">Nome do Cliente</label>
-                  <input type="text" id="client-name-input" placeholder="Nome do Cliente"></input>
+                  <input type="text" id="client-name-input" placeholder="Nome do Cliente" disabled></input>
                     
                   <label for="client-cod">Código do Cliente</label>
-                  <input type="number" id="client-cod" placeholder="Código do Cliente"></input>
+                  <input type="number" id="client-cod" placeholder="Código do Cliente" disabled></input>
 
                   <label for="client-version">Versão do Vertis</label>
                   <input type="text" id="client-version" placeholder="Versão do Vertis"></input>
@@ -86,11 +86,12 @@ function App() {
               </div>
               
               <div class="search-clients-buttons">
-                  <button class="btn-update" id='btn-update' type=''>Alterar</button>
-                  <button class="btn-close" id='btn-close' type="">Fechar</button>
+                  <button class="btn-update" id='btn-update' type="button">Alterar</button>
+                  <button class="btn-close" id='btn-close' type="button">Fechar</button>
               </div>
 
           </form>
+        </div>
       </div>
         
         <h1 class="client-list">Lista de Clientes Vertis</h1>
