@@ -14,7 +14,6 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'planilhaweb',
-  password: 'kehs',
   port: 5432,
 });
 

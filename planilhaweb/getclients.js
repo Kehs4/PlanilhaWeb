@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Clientes from './clientes';
 
-let client = null
-
         // Função para buscar os clientes
         async function getClientes() {
             try {
