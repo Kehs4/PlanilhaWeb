@@ -1,13 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
-import Clientes from '../clientes'
-import getClientes from '../getclients'
+import getClientes from '../getclients.js'
 import DataTable from 'datatables.net-dt'
-import getSearch from '../search'
-import switchModal from '../modal'
- 
-let table = new DataTable('#clientes-table');
+import getSearch from '../search.js'
+import switchModal from '../modal.js'
 
+
+let table = new DataTable('#clientes-table');
 
 function App() {
   const [clienteId, setClienteId] = useState(null);
@@ -17,6 +16,7 @@ function App() {
         <header>
           <nav>
               <div class="nav-title">
+                <img src="./vertislogo.png" width={120} height={35}></img>
                   <h1 class="gpi-title">GPI - Planilha de Clientes</h1>
               </div>
           </nav>
@@ -35,58 +35,59 @@ function App() {
                   <input type="number" id="client-cod" placeholder="Código do Cliente" disabled></input>
 
                   <label for="client-version">Versão do Vertis</label>
-                  <input type="text" id="client-version" placeholder="Versão do Vertis"></input>
+                  <input type="text" id="client-version" placeholder="Versão do Vertis" disabled></input>
                 
                   <label for="client-maintenance">Manutenção Realizada</label>
-                  <input type="text" id="client-maintenance" placeholder="Manutenção do Vertis"></input>
+                  <input type="text" id="client-maintenance" placeholder="Manutenção do Vertis" disabled></input>
 
                   <label for="client-maintenance">Manutenção Futura</label>
-                  <input type="text" id="client-maintenance-future" placeholder="Próxima Manutenção"></input>
+                  <input type="text" id="client-maintenance-future" placeholder="Próxima Manutenção" disabled></input>
                 
                   <label for="client-licences">Licenças da Unidade</label>
-                  <input type="text" id="client-licences" placeholder="Total de Licenças"></input>
+                  <input type="text" id="client-licences" placeholder="Total de Licenças" disabled></input>
                 </fieldset>
                     
                 <fieldset>
                   <legend>Dados de Acesso</legend>
                   <label for="client-teamviewer">TeamViewer</label>
-                  <input type="text" id="client-teamviewer" placeholder="TeamViewer do cliente"></input>
+                  <input type="text" id="client-teamviewer" placeholder="TeamViewer do cliente" disabled></input>
 
                   <label for="client-teamviewer-password">Senha TeamViewer</label>
-                  <input type="text" id="client-teamviewer-password" placeholder="Senha do TeamViewer"></input>
+                  <input type="text" id="client-teamviewer-password" placeholder="Senha do TeamViewer" disabled></input>
 
                   <label for="client-anydesk">AnyDesk</label>
-                  <input type="text" id="client-anydesk" placeholder="AnyDesk do cliente"></input>
+                  <input type="text" id="client-anydesk" placeholder="AnyDesk do cliente" disabled></input>
 
                   <label for="client-anydesk-password">Senha AnyDesk</label>
-                  <input type="text" id="client-anydesk-password" placeholder="Senha do AnyDesk"></input>
+                  <input type="text" id="client-anydesk-password" placeholder="Senha do AnyDesk" disabled></input>
 
                   <label for="client-licences">IP Servidor do Cliente</label>
-                  <input type="text" id="client-ip-server" placeholder="IP"></input>
+                  <input type="text" id="client-ip-server" placeholder="IP" disabled></input>
                 </fieldset>
                   
                 <fieldset>
                   <legend>Contatos</legend>
                   <label for="client-manager">Responsável Unidade</label>
-                  <input type="text" id="client-manager" placeholder='Responsável pela unid.'></input>
+                  <input type="text" id="client-manager" placeholder='Responsável pela unid.' disabled></input>
                   
                   <label for="client-email">E-mail</label>
-                  <input type="text" id="client-email" placeholder='E-mail do Cliente'></input>
+                  <input type="text" id="client-email" placeholder='E-mail do Cliente' disabled></input>
                   
                   <label for="client-ddd">DDD</label>
-                  <input type="text" id="client-ddd" placeholder='DDD do Cliente'></input>
+                  <input type="text" id="client-ddd" placeholder='DDD do Cliente' disabled></input>
 
                   <label for="client-contact-1">Telefone 1</label>
-                  <input type="text" id="client-contact-1" placeholder='Telefone 1'></input>
+                  <input type="text" id="client-contact-1" placeholder='Telefone 1' disabled></input>
 
                   <label for="client-contact-2">Telefone 2</label>
-                  <input type="text" id="client-contact-2" placeholder='Telefone 2'></input>
+                  <input type="text" id="client-contact-2" placeholder='Telefone 2' disabled></input>
                 </fieldset>
                   
               </div>
               
               <div class="search-clients-buttons">
                   <button class="btn-update" id='btn-update' type="button">Alterar</button>
+                  <button class="btn-save" id='btn-save' type="button">Salvar</button>
                   <button class="btn-close" id='btn-close' type="button">Fechar</button>
               </div>
 
@@ -113,8 +114,11 @@ function App() {
        
 
       </table>
-    </>
+      
+      
+      </>
   )
+  
 }
 
 export default App

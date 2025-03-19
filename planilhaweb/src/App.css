@@ -10,16 +10,26 @@
 
 header {
     width: 100%;
-    height: 50px;
-    background-color: rgb(65, 65, 65);
-    box-shadow: 1px 1px 5px 1px rgb(170, 170, 170);
+    height: 60px;
+    background-color: rgb(253, 253, 253);
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+body {
+    background-color: rgb(68, 68, 68);
+}
+
+.nav-title {
+    display: flex;
+    margin-left: 15px;
 }
 
 .gpi-title {
-    color: white;
-    padding: 12px;
-    font-weight: 100;
-    margin-left: 5px;
+    color: black;
+    font-weight: 200;
+    margin-left: 15px;
 }
 
 .div-form-clients {
@@ -96,7 +106,7 @@ input::-webkit-inner-spin-button {
     height: 25px;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: rgb(0, 190, 41);
+    background-color: rgb(190, 171, 0);
     color: white;
     cursor: pointer;
     border-radius: 5px;
@@ -105,6 +115,24 @@ input::-webkit-inner-spin-button {
 }
 
 .btn-update:hover {
+    background-color: rgb(160, 149, 0);
+    scale: 1.013;
+}
+
+.btn-save {
+    min-width: 100px;
+    height: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(0, 190, 41);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    margin-right: 15px;
+}
+
+.btn-save:hover {
     background-color: rgb(5, 160, 0);
     scale: 1.013;
 }
@@ -129,11 +157,14 @@ input::-webkit-inner-spin-button {
 .client-list {
     text-align: center;
     font-weight: 100;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    margin-top: 15px;
+    margin-bottom: -10px;
 }
 
 th {
-    background-color: rgb(65, 65, 65);
+    background: rgb(255,136,0);
+    background: linear-gradient(0deg, rgba(255,136,0,1) 0%, rgba(255,154,1,1) 41%, rgba(255,188,0,1) 100%);
     color: white;
     font-weight: 100;
 }
@@ -143,9 +174,10 @@ table {
     border-collapse: collapse;
     margin: auto;
     margin-bottom: 20px;
+    background-color: white;
 }
 table, th, td {
-    border: 1px solid rgb(196, 196, 196);
+    border: 1px solid rgb(219, 219, 219);
 }
 th, td {
     padding: 8px;
