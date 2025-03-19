@@ -67,7 +67,7 @@ import getClientes from './getclients';
                 if (clientCodeElement) {
                     clientCodeElement.addEventListener('dblclick', getSearch);
                 }
-    
+
 })};
 
 
