@@ -121,9 +121,10 @@ table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:after,
 table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:before,
 table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
   left: 0;
-  opacity: 0.150;
+  opacity: 0.160;
   line-height: 9px;
   font-size: 0.8em;
+  color: #ffffff;
 }
 table.dataTable thead > tr > th.dt-orderable-asc, table.dataTable thead > tr > th.dt-orderable-desc,
 table.dataTable thead > tr > td.dt-orderable-asc,
@@ -133,7 +134,7 @@ table.dataTable thead > tr > td.dt-orderable-desc {
 table.dataTable thead > tr > th.dt-orderable-asc:hover, table.dataTable thead > tr > th.dt-orderable-desc:hover,
 table.dataTable thead > tr > td.dt-orderable-asc:hover,
 table.dataTable thead > tr > td.dt-orderable-desc:hover {
-  outline: 1px solid rgb(0, 0, 0);
+  outline: solid 0.5px black;
 }
 table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order:before, table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
 table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:before,
@@ -243,7 +244,7 @@ table.dataTable td {
 table.dataTable th.dt-type-numeric, table.dataTable th.dt-type-date,
 table.dataTable td.dt-type-numeric,
 table.dataTable td.dt-type-date {
-  text-align: right;
+  text-align: left;
 }
 table.dataTable th.dt-left,
 table.dataTable td.dt-left {
@@ -340,7 +341,7 @@ table.dataTable tbody td.dt-body-nowrap {
  */
 table.dataTable {
   width: 100%;
-  margin: 0 auto;
+  margin: 3px auto;
   border-spacing: 0;
   /*
    * Header and footer styles
@@ -353,7 +354,7 @@ table.dataTable {
 table.dataTable > thead > tr > th,
 table.dataTable > thead > tr > td {
   padding: 9px;
-  border-bottom: 2px solid rgb(136, 136, 136);
+  border-bottom: 2px solid rgb(161, 161, 161);
 }
 table.dataTable > thead > tr > th:active,
 table.dataTable > thead > tr > td:active {
@@ -363,6 +364,7 @@ table.dataTable > thead > tr > td:active {
 table.dataTable > tbody > tr > th,
 table.dataTable > tbody > tr > td {
   padding: 8px 10px;
+  
 }
 table.dataTable.row-border > tbody > tr > *, table.dataTable.display > tbody > tr > * {
   border-top: 1px solid rgba(0, 0, 0, 0.15);
@@ -552,7 +554,9 @@ div.dt-container div.dt-layout-table > div {
 
 div.dt-container {
     margin: 0 auto;
-    width: 95%;
+    width: 98%;
+    margin-top: 10px;
+
 }
 
 div.dt-container .dt-search input {
@@ -560,19 +564,24 @@ div.dt-container .dt-search input {
   border: none;
   padding: 5px;
   margin-left: 8px;
-  box-shadow: 1px 1px 3px rgb(243, 187, 2);
+  box-shadow: 1px 1px 3px rgb(255, 255, 255);
 }
 
 #dt-search-0:focus {
-  background-color: rgb(255, 250, 225);
   outline: none;
+  background-color: rgb(245, 245, 245);
 }
 
 div.dt-container .dt-input {
   border-radius: 3px;
   padding: 3px;
   color: black;
-  box-shadow: 0px 0px 5px 0px rgb(177, 177, 177);
+  box-shadow: 0px 0px 3px 0px rgba(219, 219, 219, 0.589);
+}
+
+select:hover  {
+  background-color: rgb(238, 238, 238);
+  cursor: pointer;
 }
 
 div.dt-container .dt-paging .dt-paging-button {
@@ -606,12 +615,12 @@ div.dt-container .dt-paging .dt-paging-button:hover {
   color: rgb(255, 255, 255) !important;
   border: 1px solid #cabd9a;
   background-color: #cabd9a;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffbb00), color-stop(100%, #a5680b)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #ffbb00 0%, #a5680b 100%); /* Chrome10+,Safari5.1+ */
-  background: -moz-linear-gradient(top, #ffbb00 0%, #a5680b 100%); /* FF3.6+ */
-  background: -ms-linear-gradient(top, #ffbb00 0%, #a5680b 100%); /* IE10+ */
-  background: -o-linear-gradient(top, #ffbb00 0%, #a5680b 100%); /* Opera 11.10+ */
-  background: linear-gradient(to bottom, #ffbb00 0%, #a5680b 100%); /* W3C */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffbb00), color-stop(100%, #df8e16)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ffbb00 0%, #df8e16 100%); /* Chrome10+,Safari5.1+ */
+  background: -moz-linear-gradient(top, #ffbb00 0%, #df8e16 100%); /* FF3.6+ */
+  background: -ms-linear-gradient(top, #ffbb00 0%, #df8e16 100%); /* IE10+ */
+  background: -o-linear-gradient(top, #ffbb00 0%, #df8e16 100%); /* Opera 11.10+ */
+  background: linear-gradient(to bottom, #ffbb00 0%, #df8e16 100%); /* W3C */
 }
 div.dt-container .dt-paging .dt-paging-button:active {
   outline: none;
@@ -649,7 +658,6 @@ div.dt-container .dataTables_scroll div.dt-scroll-body > table > tbody > tr > td
   height: 0;
   overflow: hidden;
   margin: 0 !important;
-  padding: 0 !important;
 }
 div.dt-container.dt-empty-footer tbody > tr:last-child > * {
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
@@ -659,6 +667,10 @@ div.dt-container.dt-empty-footer .dt-scroll-body {
 }
 div.dt-container.dt-empty-footer .dt-scroll-body tbody > tr:last-child > * {
   border-bottom: none;
+}
+
+thead {
+  box-shadow: 0px 0px 6px 0px rgb(105, 105, 105);
 }
 
 
