@@ -16,7 +16,7 @@ function App() {
         <header>
           <nav>
               <div class="nav-title">
-                <img src="./vertislogo.png" width={120} height={35}></img>
+                <a href="http://vertisvet.com.br" target='blank'><img src="./vertislogo.png" width={120} height={35}></img></a>
                   <h1 class="gpi-title">GPI - Planilha de Clientes</h1>
               </div>
           </nav>
@@ -95,6 +95,7 @@ function App() {
         </div>
       </div>
         
+
       <table id="clientes-table">
         <thead>
             <tr>

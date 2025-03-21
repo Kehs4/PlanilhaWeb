@@ -10,7 +10,7 @@
 
 header {
     width: 100%;
-    height: 60px;
+    height: 45px;
     background-color: rgb(253, 253, 253);
     align-content: center;
     align-items: center;
@@ -28,8 +28,8 @@ body {
 }
 
 .gpi-title {
-    color: black;
-    font-weight: 200;
+    color: rgb(235, 102, 24);
+    font-weight: 100;
     margin-left: 15px;
 }
 
@@ -42,7 +42,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.315);
+    background-color: rgba(0, 0, 0, 0.411);
 }
 
 .div-form-clients .div-form-clients-content{
@@ -50,7 +50,7 @@ body {
     width: 50%; 
     display: flex;
     margin: auto;
-    margin-top: 55px;
+    margin-top: 40px;
     flex-direction: column;
     align-items: center;
 }
@@ -59,40 +59,70 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px rgb(97, 97, 97) solid;
-    box-shadow: 1px 1px 3px 1px rgba(63, 63, 63, 0.521);
-    padding: 5px;
-    background-color: white;
+    border: 1px rgb(255, 255, 255) solid;
+    box-shadow: 1px 1px 3px 1px rgba(63, 63, 63, 0.39);
+    padding: 6px;
+    border-radius: 15px;
+    font-weight: 200;
+    background-color: rgba(46, 46, 46, 0.925);
 }
 
 
 .search-clients {  
     display: flex;
-    margin-bottom: 8px;
+    border-radius: 15px;
+    margin-top: 10px;
+    border: 1px rgb(235, 102, 24) solid;
+    background-color: rgba(73, 73, 73, 0.808);
     label {
-        margin-top: 5px;
-        color: rgb(95, 95, 95);
+        padding: 3px;
+        color: white;
+        font-weight: 100;
     }
     input {  
         height: 30px;
         padding: 5px;
-        margin: 5px;
+        margin: 4px;
+        outline: none;
+        border-radius: 7px;
+        font-weight: 200;
+        border: 1px solid rgb(116, 116, 116);
+        color: rgba(255, 255, 255, 0.815);
+        background-color: rgba(122, 122, 122, 0.473);
+    }
+    input:disabled {
+        color: rgba(248, 248, 248, 0.514);
+        border: 1px solid rgb(49, 49, 49);
+        background-color: rgb(78, 78, 78);
+        cursor: not-allowed;
+    }
+    input:focus {
+        border: 1px solid rgba(0, 255, 128, 0.801);
+        color: white;
     }
     legend {
-        padding: 10px;
         margin: auto;
+        padding: 3px;
+        color: white;
+        font-weight: 300;
     }
     fieldset {
         max-width: 300px;
         display: flex;
         flex-direction: column;
-        padding: 5px;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 25px;
+        border: 1px solid;
+        border-width: 2px;
+        border-color: rgba(51, 50, 50, 0.582);
     }
 }
 
 .search-clients-buttons {
     display: flex;
     align-items: end;
+    margin: auto;
 }
 
 input::-webkit-outer-spin-button,
@@ -104,62 +134,72 @@ input::-webkit-inner-spin-button {
 
 .btn-update {
     min-width: 100px;
-    height: 25px;
+    height: 28px;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: rgb(190, 171, 0);
+    background-color: rgba(199, 186, 5);
     color: white;
     cursor: pointer;
     border-radius: 5px;
-    border: none;
+    border: 1px solid rgba(73, 73, 73, 0.808);
     margin-right: 15px;
+    font-weight: 200;
 }
 
 .btn-update:hover {
-    background-color: rgb(160, 149, 0);
     scale: 1.013;
+    transition: 0.4s;
+    border-color: rgb(255, 238, 0);
+    background-color: rgba(73, 73, 73, 0.808);
 }
 
 .btn-save {
     min-width: 100px;
-    height: 25px;
+    height: 28px;
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: rgb(0, 190, 41);
     color: white;
     cursor: pointer;
     border-radius: 5px;
-    border: none;
+    border: 1px solid rgba(73, 73, 73, 0.808);
     margin-right: 15px;
+    font-weight: 200;
 }
 
 .btn-save:hover {
-    background-color: rgb(5, 160, 0);
     scale: 1.013;
+    transition: 0.4s;
+    border-color: rgb(0, 255, 55);
+    background-color: rgba(73, 73, 73, 0.808);
 }
 
 .btn-close {
     min-width: 100px;
-    height: 25px;
+    height: 28px;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: rgb(131, 4, 21);
+    background-color: rgb(209, 3, 31);
     color: white;
     cursor: pointer;
     border-radius: 5px;
-    border: none;
+    border: 1px solid rgba(73, 73, 73, 0.808);
+    font-weight: 200;
 }
 
 .btn-close:hover {
-    background-color: rgb(116, 5, 2);
+    background-color: rgba(73, 73, 73, 0.808);
     scale: 1.013;
+    transition: 0.4s;
+    border-color: rgb(255, 0, 34);
+    
 }
 
 th {
-    background: rgb(255,136,0);
-    background: linear-gradient(0deg, rgba(255,136,0,1) 0%, rgba(255,154,1,1) 41%, rgba(255,188,0,1) 100%);
+    background: rgb(235, 102, 24);
+    background: linear-gradient(0deg, rgb(235, 102, 24) 0%, rgb(255, 145, 0) 41%, rgb(255, 196, 0) 100%);
     color: white;
-    font-weight: 100;
+    font-weight: 400;
 }
 
 table {
@@ -169,14 +209,21 @@ table {
     margin-bottom: 20px;
     background-color: white;
     margin-top: 20px;
+    font-weight: 200;
 }
 
 table, th, td {
     border: 1px solid rgb(219, 219, 219);
+    border-top: none;
+    border-left: none;
 }
 th, td {
     padding: 8px;
     text-align: left;
+}
+
+th {
+    border: none;
 }
 
 tr:hover {
