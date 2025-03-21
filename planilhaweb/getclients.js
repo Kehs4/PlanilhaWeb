@@ -36,6 +36,9 @@ import Clientes from './clientes';
             }
         }
         
+        let labelElement = document.querySelectorAll('dt-search-0');
+        labelElement.innerHTML = "Procurar:"
+
         window.onload = getClientes;
 
 export default getClientes;
