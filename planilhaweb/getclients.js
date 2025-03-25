@@ -1,21 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Clientes from './clientes';
 
         // Função para buscar os clientes
         async function getClientes() {
             try {
                 const response = await fetch('http://localhost:3000/clientes');
-                if (!response.ok) {
-                    throw new Error(`Erro HTTP! Status: ${response.status}`);
-                }
                 
                 const data = await response.json();
-                if (!Array.isArray(data) || data.length === 0) {
-                    console.error("Erro: Dados da API inválidos ou vazios.");
-                    return;
-                }
-
+            
                 console.log(data)
                 const tableBody = document.querySelector('#clientes-table tbody');
                 data.forEach(cliente => {
@@ -36,9 +26,6 @@ import Clientes from './clientes';
             }
         }
         
-        let labelElement = document.querySelectorAll('dt-search-0');
-        labelElement.innerHTML = "Procurar:"
-
         window.onload = getClientes;
 
 export default getClientes;

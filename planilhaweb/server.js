@@ -15,6 +15,7 @@ const pool = new Pool({
   host: 'localhost',
   database: 'planilhaweb',
   port: 5432,
+  password: 'boeing',
 });
 
 pool.connect();

@@ -1,9 +1,3 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import DataTable from 'datatables.net-dt';
-import Clientes from './clientes';
-import getClientes from './getclients';
-
 
 // Função para puxar os dados dos clientes por doubleclick.
 
@@ -59,7 +53,6 @@ import getClientes from './getclients';
             getContact2Cliente.value = data[client].telefone2 || "Sem dado.";
 
     } catch (error) {
-                console.error('Erro ao buscar cliente:', error);
             } 
 
             document.addEventListener('DOMContentLoaded', () => {
