@@ -10,15 +10,26 @@
 
 header {
     width: 100%;
-    height: 45px;
+    height: 60px;
     background-color: rgb(253, 253, 253);
     align-content: center;
     align-items: center;
     text-align: center;
+    grid-row: header;
+    h1 {
+        text-shadow: -2px 1px rgba(163, 163, 163, 0.212);
+    }
 }
 
 body {
     background-color: rgb(68, 68, 68);
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: [header] auto [content] 1fr [footer] auto;
+}
+
+main {
+    grid-row: content;
 }
 
 .nav-title {
@@ -229,4 +240,80 @@ th {
 tr:hover {
     background-color: rgb(238, 238, 238);
     cursor: pointer;
+}
+
+footer {
+    grid-row: footer;
+    display: grid;
+}
+
+.footer-vertis {
+    background-color: rgb(255, 255, 255);
+    color: rgba(235, 102, 24, 1);
+    margin-top: 40px;
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.div-all-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: auto;
+    padding: 30px;
+
+    p {
+        margin: 10px;
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+    h1 {
+        font-size: 25px;
+        font-weight: 600;
+        text-shadow: -5px 5px rgba(247, 167, 155, 0.158);
+    }
+}
+
+.footer-logo {
+    text-align: center;
+    
+    p {
+        font-weight: 400;
+        text-shadow: -5px 5px rgba(247, 167, 155, 0.158);
+    }
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-infos {
+}
+
+.time-svg {
+    display: flex;
+    align-items: center;
+}
+
+.mail-svg {
+    display: flex;
+    align-items: center;
+}
+
+.telefone-svg {
+    display: flex;
+    align-items: center;    
+}
+
+.whatsapp-svg {
+    display: flex;
+    align-items: center;
+}
+
+.instagram-logo {
+    display: flex;
+    align-items: center;
 }
