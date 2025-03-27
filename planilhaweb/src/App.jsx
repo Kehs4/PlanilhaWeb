@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import getClientes from '../getclients.js'
-import DataTable from 'datatables.net-dt'
 import getSearch from '../search.js'
 import switchModal from '../modal.js'
+import DT from 'datatables.net-dt';
+import DataTable from 'datatables.net-dt'
+ 
+DataTable.use(DT);
 
-
-let table = new DataTable('#clientes-table');
 
 function App() {
   const [clienteId, setClienteId] = useState(null);
@@ -14,18 +15,22 @@ function App() {
     // Defina uma função assíncrona interna
     const carregarScripts = async () => {
       try {
-        
+        const data1 = await switchModal();
 
-        const data3 = await switchModal(); // Espera até que swichModal termine
+        const data2 = await getClientes();
 
-        const data4 = await DataTable(); // Espera até que swichModal termine
+        let table = async () => {
+          table = new DataTable('#clientes-table')};
+
+        const data3 = await table();
       } catch (error) {
         console.error("Erro ao carregar os dados:", error);
       }
     };
 
     // Chama a função assíncrona dentro do useEffect
-    switchModal();
+    carregarScripts();
+
   }, []); // O array vazio garante que isso seja chamado apenas uma vez, na montagem do componente
   
 

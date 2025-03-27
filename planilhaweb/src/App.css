@@ -245,12 +245,15 @@ tr:hover {
 footer {
     grid-row: footer;
     display: grid;
+    width: 100%;
+    bottom: auto;
+    position: absolute;
 }
 
 .footer-vertis {
     background-color: rgb(255, 255, 255);
     color: rgba(235, 102, 24, 1);
-    margin-top: 40px;
+    margin-top: 60px;
     a {
         text-decoration: none;
         color: inherit;
