@@ -8,6 +8,9 @@
             
                 console.log(data)
                 const tableBody = document.querySelector('#clientes-table tbody');
+
+                tableBody.innerHTML = ''; 
+        
                 data.forEach(cliente => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
@@ -25,8 +28,5 @@
                 console.error('Erro ao buscar clientes:', error);
             }
         }
-        
-        window.onload = getClientes;
-
 export default getClientes;
             
