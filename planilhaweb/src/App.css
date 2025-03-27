@@ -22,10 +22,14 @@ header {
 }
 
 body {
-    background-color: rgb(68, 68, 68);
+    background-color: rgb(29, 33, 39);
     min-height: 100vh;
     display: grid;
     grid-template-rows: [header] auto [content] 1fr [footer] auto;
+}
+
+body::selection {
+    background-color: rgba(221, 125, 0, 0.726)
 }
 
 main {
@@ -47,69 +51,75 @@ main {
 .div-form-clients {
     display: none; 
     position: fixed;
+    align-items: center;
+    justify-content: center;
     z-index: 1; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.411);
+    background-color: rgba(29, 33, 39, 0.611);
 }
 
-.div-form-clients .div-form-clients-content{
+.div-form-clients-content{
     border-radius: 5px;
-    width: 50%; 
     display: flex;
     margin: auto;
-    margin-top: 40px;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .form-clients {
     display: flex;
+    margin-top: 110px;
     flex-direction: column;
     align-items: center;
     border: 1px rgb(255, 255, 255) solid;
-    box-shadow: 1px 1px 3px 1px rgba(63, 63, 63, 0.39);
+    border-top: none;
+    border-bottom: none;
+    box-shadow: 0px -15px 15px -10px rgba(255, 145, 0, 0.336);
     padding: 6px;
     border-radius: 15px;
     font-weight: 200;
-    background-color: rgba(46, 46, 46, 0.925);
+    background-color: rgba(46, 53, 62, 0.925);
 }
 
 
 .search-clients {  
     display: flex;
-    border-radius: 15px;
     margin-top: 10px;
-    border: 1px rgb(235, 102, 24) solid;
-    background-color: rgba(73, 73, 73, 0.808);
+    background-color: rgba(46, 53, 63, 0.808);
     label {
-        padding: 3px;
+        padding: 5px;
         color: white;
         font-weight: 100;
     }
     input {  
         height: 30px;
-        padding: 5px;
+        padding: 15px;
         margin: 4px;
         outline: none;
         border-radius: 7px;
         font-weight: 200;
-        border: 1px solid rgb(116, 116, 116);
-        color: rgba(255, 255, 255, 0.815);
-        background-color: rgba(122, 122, 122, 0.473);
+        border: 1px solid rgb(64, 79, 97);
+        color: rgb(255, 255, 255);
+        background-color: rgb(45, 50, 59);
     }
     input:disabled {
-        color: rgba(248, 248, 248, 0.514);
+        color: rgba(165, 186, 216, 0.747);
         border: 1px solid rgb(49, 49, 49);
-        background-color: rgb(78, 78, 78);
+        background-color: rgb(40, 45, 54);
         cursor: not-allowed;
     }
     input:focus {
-        border: 1px solid rgba(0, 255, 128, 0.801);
+        border: 1px solid rgb(255, 145, 0);
         color: white;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        transition: 0.5s all;
     }
     legend {
         margin: auto;
@@ -123,10 +133,11 @@ main {
         flex-direction: column;
         margin: 10px;
         padding: 15px;
-        border-radius: 25px;
-        border: 1px solid;
-        border-width: 2px;
-        border-color: rgba(51, 50, 50, 0.582);
+        border: 1px groove;
+        border-radius: 15px;
+        border-top: none;
+        border-bottom: none;
+        border-color: rgba(252, 252, 252, 0.411);
     }
 }
 
@@ -148,11 +159,11 @@ input::-webkit-inner-spin-button {
     height: 28px;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: rgba(199, 186, 5);
+    background-color: rgba(32, 40, 51, 0.808);
     color: white;
     cursor: pointer;
     border-radius: 5px;
-    border: 1px solid rgba(73, 73, 73, 0.808);
+    border: 1px solid rgba(235, 102, 24, 1);
     margin-right: 15px;
     font-weight: 200;
 }
@@ -160,8 +171,8 @@ input::-webkit-inner-spin-button {
 .btn-update:hover {
     scale: 1.013;
     transition: 0.4s;
-    border-color: rgb(255, 238, 0);
-    background-color: rgba(73, 73, 73, 0.808);
+    border-color: rgba(32, 40, 51, 0.808);
+    background-color: rgba(235, 102, 24, 1);
 }
 
 .btn-save {
@@ -169,11 +180,11 @@ input::-webkit-inner-spin-button {
     height: 28px;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: rgb(0, 190, 41);
+    background-color: rgba(32, 40, 51, 0.808);
     color: white;
     cursor: pointer;
     border-radius: 5px;
-    border: 1px solid rgba(73, 73, 73, 0.808);
+    border: 1px solid rgba(235, 102, 24, 1);
     margin-right: 15px;
     font-weight: 200;
 }
@@ -181,8 +192,8 @@ input::-webkit-inner-spin-button {
 .btn-save:hover {
     scale: 1.013;
     transition: 0.4s;
-    border-color: rgb(0, 255, 55);
-    background-color: rgba(73, 73, 73, 0.808);
+    border-color: rgba(32, 40, 51, 0.808);
+    background-color: rgba(235, 102, 24, 1);
 }
 
 .btn-close {
@@ -190,19 +201,19 @@ input::-webkit-inner-spin-button {
     height: 28px;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: rgb(209, 3, 31);
+    background-color: rgba(32, 40, 51, 0.808);
     color: white;
     cursor: pointer;
     border-radius: 5px;
-    border: 1px solid rgba(73, 73, 73, 0.808);
+    border: 1px solid rgba(235, 102, 24, 1);
     font-weight: 200;
 }
 
 .btn-close:hover {
-    background-color: rgba(73, 73, 73, 0.808);
+    border-color: rgba(32, 40, 51, 0.808);
     scale: 1.013;
     transition: 0.4s;
-    border-color: rgb(255, 0, 34);
+    background-color: rgba(235, 102, 24, 1);
     
 }
 

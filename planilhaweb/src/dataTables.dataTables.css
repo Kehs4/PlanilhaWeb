@@ -463,7 +463,7 @@ div.dt-container div.dt-layout-row {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 0.35em 0;
+  margin: 1em auto;
 }
 
 .dt-layout-row {
@@ -544,14 +544,21 @@ div.dt-container {
 
 div.dt-container .dt-search input {
   border-radius: 3px;
-  border: 1px solid;
-  padding: 5px;
-  margin-left: 8px;
+  border: 1px solid white;
+  padding: 6px;
+  color: white;
+  margin-left: 6px;
+  background-color: rgb(31, 36, 44);
 }
 
 #dt-search-0:focus {
   outline: none;
-  border-color: (235, 102, 24);
+  border-color: rgb(255, 164, 28);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  transition: 0.5s all;
+  transform: 2s all;
 }
 
 div.dt-container .dt-input {
@@ -581,9 +588,9 @@ div.dt-container .dt-paging .dt-paging-button {
 }
 div.dt-container .dt-paging .dt-paging-button.current, div.dt-container .dt-paging .dt-paging-button.current:hover {
   color: inherit !important;
-  border: 1px solid rgb(255, 174, 0);
-  background-image: rgb(255, 174, 0);
-  background-color: rgb(255, 174, 0);
+  border: 1px solid rgb(235, 124, 0);
+  background-image: rgb(235, 124, 0);
+  background-color: rgb(235, 124, 0);
 }
 div.dt-container .dt-paging .dt-paging-button.disabled, div.dt-container .dt-paging .dt-paging-button.disabled:hover, div.dt-container .dt-paging .dt-paging-button.disabled:active {
   cursor: default;
@@ -597,11 +604,11 @@ div.dt-container .dt-paging .dt-paging-button:hover {
   border: 1px solid #cabd9a;
   background-color: #cabd9a;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffbb00), color-stop(100%, #df8e16)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #ffbb00 0%, #df8e16 100%); /* Chrome10+,Safari5.1+ */
-  background: -moz-linear-gradient(top, #ffbb00 0%, #df8e16 100%); /* FF3.6+ */
-  background: -ms-linear-gradient(top, #ffbb00 0%, #df8e16 100%); /* IE10+ */
-  background: -o-linear-gradient(top, #ffbb00 0%, #df8e16 100%); /* Opera 11.10+ */
-  background: linear-gradient(to bottom, #ffbb00 0%, #df8e16 100%); /* W3C */
+  background: -webkit-linear-gradient(top, #ff9900 0%, #df8e16 100%); /* Chrome10+,Safari5.1+ */
+  background: -moz-linear-gradient(top, #ff9900 0%, #df8e16 100%); /* FF3.6+ */
+  background: -ms-linear-gradient(top, #ff9900 0%, #df8e16 100%); /* IE10+ */
+  background: -o-linear-gradient(top, #ff9900 0%, #f39303 100%); /* Opera 11.10+ */
+  background: linear-gradient(to bottom, #ff9900 0%, #ff7e33 100%); /* W3C */
 }
 div.dt-container .dt-paging .dt-paging-button:active {
   outline: none;
