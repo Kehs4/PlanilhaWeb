@@ -630,6 +630,7 @@ div.dt-container .dt-info,
 div.dt-container .dt-processing,
 div.dt-container .dt-paging {
   color: white;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.507);
 }
 div.dt-container .dataTables_scroll {
   clear: both;
@@ -656,8 +657,6 @@ div.dt-container.dt-empty-footer .dt-scroll-body {
 div.dt-container.dt-empty-footer .dt-scroll-body tbody > tr:last-child > * {
   border-bottom: none;
 }
-
-
 
 /*
  * Overrides for RTL support

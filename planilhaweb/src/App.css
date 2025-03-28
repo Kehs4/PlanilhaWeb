@@ -15,25 +15,21 @@ header {
     align-content: center;
     align-items: center;
     text-align: center;
-    grid-row: header;
     h1 {
         text-shadow: -2px 1px rgba(163, 163, 163, 0.212);
     }
 }
 
 body {
+    position: relative;
+    padding-bottom: 250px;
     background-color: rgb(29, 33, 39);
     min-height: 100vh;
-    display: grid;
-    grid-template-rows: [header] auto [content] 1fr [footer] auto;
 }
 
 body::selection {
-    background-color: rgba(221, 125, 0, 0.726)
-}
-
-main {
-    grid-row: content;
+    background-color: rgba(0, 107, 54, 0.596);
+    color: white;
 }
 
 .nav-title {
@@ -222,6 +218,7 @@ th {
     background: linear-gradient(0deg, rgb(235, 102, 24) 0%, rgb(255, 145, 0) 41%, rgb(255, 196, 0) 100%);
     color: white;
     font-weight: 400;
+    border: none;
 }
 
 table {
@@ -242,10 +239,12 @@ table, th, td {
 th, td {
     padding: 8px;
     text-align: left;
+    
 }
 
-th {
-    border: none;
+th > span {
+    text-shadow: 1px 1px 3px black;
+
 }
 
 tr:hover {
@@ -253,47 +252,54 @@ tr:hover {
     cursor: pointer;
 }
 
-footer {
-    grid-row: footer;
-    display: grid;
-    width: 100%;
-    bottom: auto;
-    position: absolute;
-}
-
 .footer-vertis {
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+    margin: auto;
+    bottom: 0;
     background-color: rgb(255, 255, 255);
     color: rgba(235, 102, 24, 1);
-    margin-top: 60px;
     a {
         text-decoration: none;
         color: inherit;
     }
 }
 
-.div-all-footer {
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
-    margin: auto;
-    padding: 30px;
+.footer-vertis::selection {
+    color: white;
+}
 
+.div-all-footer {
+    border: 2px solid;
+    border-color: rgba(255, 102, 0, 0.842);
+    border-radius: 50px;
+    width: 75%;
+    margin: auto;
+    border-top: none;
+    border-bottom: none;
+    display: grid;
+    align-items: start;
+    justify-items: center;
+    justify-content: space-evenly;
     p {
-        margin: 10px;
-        font-size: 16px;
+        margin: 7px;
+        font-size: 17px;
         font-weight: 300;
     }
 
     h1 {
         font-size: 25px;
         font-weight: 600;
-        text-shadow: -5px 5px rgba(247, 167, 155, 0.158);
+        text-shadow: -1px 3px rgba(247, 167, 155, 0.158);
     }
 }
 
 .footer-logo {
+    display: grid;
+    grid-column: 1 / 1;
+    align-content: start;
     text-align: center;
-    
     p {
         font-weight: 400;
         text-shadow: -5px 5px rgba(247, 167, 155, 0.158);
@@ -301,10 +307,15 @@ footer {
 }
 
 .footer-links {
+    display: grid;
+    grid-column: 2 / 3;
+    align-items: start;
     margin-top: 10px;
 }
 
 .footer-infos {
+    grid-column: 3 / 3;
+    display: grid;
 }
 
 .time-svg {
