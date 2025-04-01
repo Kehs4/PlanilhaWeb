@@ -10,7 +10,7 @@
 
 header {
     width: 100%;
-    height: 60px;
+    height: 70px;
     background-color: rgb(253, 253, 253);
     align-content: center;
     align-items: center;
@@ -39,9 +39,21 @@ body::selection {
 }
 
 .gpi-title {
-    color: rgb(235, 102, 24);
+    color: rgb(0, 0, 0);
     font-weight: 100;
-    margin-left: 15px;
+    font-size: 26px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.vertisimg {
+    z-index: -1;
+    position: fixed;
+    bottom: 20vh;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+
 }
 
 .div-form-clients {
@@ -258,8 +270,7 @@ tr:hover {
     width: 100%;
     margin: auto;
     bottom: 0;
-    background-color: rgb(255, 255, 255);
-    color: rgba(235, 102, 24, 1);
+    background-color: rgba(224, 224, 224, 0.884);
     a {
         text-decoration: none;
         color: inherit;
@@ -271,8 +282,7 @@ tr:hover {
 }
 
 .div-all-footer {
-    border: 2px solid;
-    border-color: rgba(255, 102, 0, 0.842);
+    border-color: rgba(28, 40, 66, 0.842);
     border-radius: 50px;
     width: 75%;
     margin: auto;
@@ -299,10 +309,22 @@ tr:hover {
     display: grid;
     grid-column: 1 / 1;
     align-content: start;
+    margin-top: 10px;
+    color: black;
     text-align: center;
     p {
         font-weight: 400;
-        text-shadow: -5px 5px rgba(247, 167, 155, 0.158);
+        color: rgba(44, 44, 44, 0.781);
+        text-shadow: -1px 1px rgba(0, 153, 255, 0.253);
+        font-size: 13px;
+    }
+}
+
+.footer-logo:hover {
+    transform: scale(1.02);
+    transition: 0.5s;
+    p {
+        color: rgb(235, 102, 24);
     }
 }
 
@@ -311,12 +333,34 @@ tr:hover {
     grid-column: 2 / 3;
     align-items: start;
     margin-top: 10px;
+    h1 {
+        font-weight: 300;
+    }
+    a:hover {
+        transform: scaleX(1.02);
+        color: rgb(235, 102, 24);
+
+    }
 }
 
 .footer-infos {
     grid-column: 3 / 3;
     display: grid;
+    
 }
+
+.a-contact:hover {
+    transform: scale(1.007);
+    transition: 0.5s all;
+        color: rgb(235, 102, 24);
+        
+}
+
+.mail-svg:hover {
+    color: rgb(235, 102, 24);
+    transition: 0.5s all;
+}
+
 
 .time-svg {
     display: flex;
@@ -333,12 +377,46 @@ tr:hover {
     align-items: center;    
 }
 
+.a-whatsapp:hover {
+    transform: scale(1.007);
+    transition: 0.5s all;
+        color: rgb(235, 102, 24);
+        
+}
+
+.whatsapp-svg:hover {
+    color: rgb(235, 102, 24);
+    transition: 0.5s all;
+}
+
 .whatsapp-svg {
     display: flex;
     align-items: center;
 }
 
+.a-instagram:hover {
+    transform: scale(1.007);
+    transition: 0.5s all;
+        color: rgb(235, 102, 24);
+        
+}
+
+.instagram-logo:hover {
+    color: rgb(235, 102, 24);
+    transition: 0.5s all;
+}
+
 .instagram-logo {
     display: flex;
     align-items: center;
+}
+
+.footer-local {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    font-weight: 200;
+    margin-top: 10px;
+    font-size: 13px;
 }
