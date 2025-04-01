@@ -23,7 +23,7 @@ const switchModal = () => {
     };
 
       const alterarBtn = document.getElementById('btn-update')
-      const inputs = document.querySelectorAll("input")
+      const inputs = document.querySelectorAll('.btns')
 
       // Verifique se o botão foi encontrado
       if (alterarBtn) {
@@ -50,7 +50,8 @@ const switchModal = () => {
               }
             )
           }
-          )
-        };
+        )
       };
+    };
+
 export default switchModal;
