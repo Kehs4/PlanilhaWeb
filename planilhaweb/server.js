@@ -17,7 +17,7 @@ const pool = new Pool({
   host: 'localhost',
   database: 'planilhaweb',
   port: 5432,
-  password: 'boeing',
+  password: 'kehs',
 });
 
 pool.connect();
@@ -40,17 +40,17 @@ app.get('/clientes', async (req, res) => {
 
 app.put('/clientes', async (req, res) => {
   try {
-      const { nome_cliente, cod_cliente } = req.body;
+      const { nome_cliente, versao_vertis_cliente, dth_manutencao_realizada, dth_manutencao_futura, licencas_cliente, acesso_cliente_teamviewer, senha_acesso_cliente_teamviewer, acesso_cliente_anydesk, senha_acesso_cliente_anydesk, ip_servidor_cliente, contatos, email_cliente, ddd_telefone, telefone1, telefone2, cod_cliente } = req.body;
 
       const result = await pool.query(
-          'UPDATE clientes SET nome_cliente = $1 WHERE cod_cliente = $2 RETURNING *',
-          [nome_cliente, cod_cliente]
+          'UPDATE clientes SET nome_cliente = $1, versao_vertis_cliente = $2, dth_manutencao_realizada = $3, dth_manutencao_futura = $4, licencas_cliente = $5, acesso_cliente_teamviewer = $6, senha_acesso_cliente_teamviewer = $7, acesso_cliente_anydesk = $8, senha_acesso_cliente_anydesk = $9 ,ip_servidor_cliente = $10, contatos = $11, email_cliente = $12, ddd_telefone = $13, telefone1 = $14, telefone2 = $15  WHERE cod_cliente = $16',
+          [nome_cliente, versao_vertis_cliente, dth_manutencao_realizada, dth_manutencao_futura, licencas_cliente, acesso_cliente_teamviewer, senha_acesso_cliente_teamviewer, acesso_cliente_anydesk, senha_acesso_cliente_anydesk, ip_servidor_cliente, contatos, email_cliente, ddd_telefone, telefone1, telefone2, cod_cliente]
       );
       
       res.status(200).send(result.rows[0]);
 
   } catch (error) {
-    return res.status(404).send('Cliente não encontrado.');
+    return res.status(404).send('Erro 404: Cliente não encontrado.');
   }
 });
 

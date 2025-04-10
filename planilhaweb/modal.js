@@ -47,8 +47,7 @@ const switchModal = () => {
               // Habilita os inputs
               inputs.forEach(input => {
                   input.disabled = true
-              }
-            )
+              })
           }
         )
       };
