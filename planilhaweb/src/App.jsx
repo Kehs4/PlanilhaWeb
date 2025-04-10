@@ -3,7 +3,8 @@ import './App.css'
 import getClientes from '../getclients.js'
 import getSearch from '../search.js'
 import switchModal from '../modal.js'
-import DT from 'datatables.net-dt';
+import saveData from '../saveData.js'
+import DT from 'datatables.net-dt'
 import DataTable from 'datatables.net-dt'
  
 DataTable.use(DT);
@@ -13,9 +14,9 @@ function App() {
   useEffect(() => {
     const carregarScripts = async () => {
       try {
-        const data2 = await getClientes();
+        const data1 = await getClientes();
 
-        const data1 = await switchModal();
+        const data2 = await switchModal();
 
         let table = async () => {
           table = new DataTable('#clientes-table')};
@@ -110,7 +111,7 @@ function App() {
               
               <div class="search-clients-buttons">
                   <button class="btn-update" id='btn-update' type="button">Alterar</button>
-                  <button class="btn-save" id='btn-save' type="button">Salvar</button>
+                  <button class="btn-save" id='btn-save' type="button" onClick={saveData}>Salvar</button>
                   <button class="btn-close" id='btn-close' type="button">Fechar</button>
               </div>
 
