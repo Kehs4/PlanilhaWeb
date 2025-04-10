@@ -1,6 +1,5 @@
 // Função para puxar os dados dos clientes por doubleclick.
 
-
  async function getSearch() {
     try {
         const client = event.target.parentElement.rowIndex - 1;
@@ -55,49 +54,10 @@
             getContact1Cliente.value = data[client].telefone1 || "Sem dado.";
             getContact2Cliente.value = data[client].telefone2 || "Sem dado.";
 
+            
     } catch (error) {
             } 
 
-            document.addEventListener('DOMContentLoaded', () => {
-                const clientCodeElement = document.getElementById('client-code');
-                if (clientCodeElement) {
-                    clientCodeElement.addEventListener('dblclick', getSearch);
-                }
-
-})
-
-    async function saveInputName(req, res) {
-        pool = require('pg');
-        const app = require('express')();
-        const cors = require('cors');
-
-        const pool = new Pool({
-            user: 'postgres',
-            host: 'localhost',
-            database: 'planilhaweb',
-            port: 5432,
-            password: 'boeing',
-          });
-          
-          pool.connect();
-        
-        // Endpoint para salvar os valores que estão dentro dos inputs do Modal.
-        const response = await fetch('http://localhost:3000/clientes');
-        const data = await response.json();
-        const saveInputName = document.getElementById("client-name-input").value;
-        const getNomeCliente = document.getElementById('client-name-input');
-  
-        app.put('/clientes', async (req, res) => {
-            saveInputName = await pool.query('UPDATE clientes SET nome_cliente = ${document.getElementById("client-name-input").innerHTML} WHERE nome_cliente = $1', [saveInputName]);
-            getNomeCliente = await data[saveInputName].nome_cliente;
-            
-            res.status(200).json({ message: 'Cliente atualizado com sucesso!' });
-            
-            console.log(saveInputName);
-        });
-
-    };
 };
-
 
 export default getSearch;

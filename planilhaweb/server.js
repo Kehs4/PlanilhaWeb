@@ -1,4 +1,3 @@
-
 const express = require('express');
 const { Pool } = require('pg');
 const app = express();
@@ -25,12 +24,13 @@ pool.connect();
 
 module.exports = pool;
 
+
 app.use(express.json());
 
 // Endpoint para obter a lista de clientes
 app.get('/clientes', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM clientes');
+    const result = await pool.query('SELECT * FROM clientes ORDER BY cod_cliente');
     res.json(result.rows);
   } catch (error) {
     console.error('Erro ao consultar clientes', error);
@@ -38,6 +38,22 @@ app.get('/clientes', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
+app.put('/clientes', async (req, res) => {
+  try {
+      const { nome_cliente, cod_cliente } = req.body;
+
+      const result = await pool.query(
+          'UPDATE clientes SET nome_cliente = $1 WHERE cod_cliente = $2 RETURNING *',
+          [nome_cliente, cod_cliente]
+      );
+      
+      res.status(200).send(result.rows[0]);
+
+  } catch (error) {
+    return res.status(404).send('Cliente não encontrado.');
+  }
+});
+
+  app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
