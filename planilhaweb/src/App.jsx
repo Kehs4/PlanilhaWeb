@@ -8,27 +8,25 @@ import DataTable from 'datatables.net-dt'
  
 DataTable.use(DT);
 
-
 function App() {
   const [clienteId, setClienteId] = useState(null);
   useEffect(() => {
-    // Defina uma função assíncrona interna
     const carregarScripts = async () => {
       try {
-        const data1 = await switchModal();
-
         const data2 = await getClientes();
+
+        const data1 = await switchModal();
 
         let table = async () => {
           table = new DataTable('#clientes-table')};
 
         const data3 = await table();
+
       } catch (error) {
         console.error("Erro ao carregar os dados:", error);
       }
     };
 
-    // Chama a função assíncrona dentro do useEffect
     carregarScripts();
 
   }, []); // O array vazio garante que isso seja chamado apenas uma vez, na montagem do componente
@@ -48,8 +46,10 @@ function App() {
       <div class="div-form-clients">
         <div class="div-form-clients-content">
           <form class="form-clients" action="">
+          <h1 id='client-modal'></h1>
+
               <div class="search-clients">
-                <fieldset>
+                <fieldset class='client-data'>
                 <legend>Dados do Cliente</legend>
                   <label for="client-name">Nome do Cliente</label>
                   <input type="text" class='btns' id="client-name-input" placeholder="Nome do Cliente" disabled></input>
@@ -70,7 +70,7 @@ function App() {
                   <input type="text" class='btns' id="client-licences" placeholder="Total de Licenças" disabled></input>
                 </fieldset>
                     
-                <fieldset>
+                <fieldset class='client-access'>
                   <legend>Dados de Acesso</legend>
                   <label for="client-teamviewer">TeamViewer</label>
                   <input type="text" class='btns' id="client-teamviewer" placeholder="TeamViewer do cliente" disabled></input>
@@ -88,7 +88,7 @@ function App() {
                   <input type="text" class='btns' id="client-ip-server" placeholder="IP" disabled></input>
                 </fieldset>
                   
-                <fieldset>
+                <fieldset class='client-contacts'>
                   <legend>Contatos</legend>
                   <label for="client-manager">Responsável Unidade</label>
                   <input type="text" class='btns' id="client-manager" placeholder='Responsável pela unid.' disabled></input>
@@ -137,8 +137,6 @@ function App() {
         </tbody>
        
       </table>
-      
-    
 
       <footer class='footer-vertis'>
         <div class='div-all-footer'>

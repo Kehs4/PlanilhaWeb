@@ -93,13 +93,27 @@ body::selection {
     border: 1px rgb(255, 255, 255) solid;
     border-top: none;
     border-bottom: none;
-    box-shadow: 0px -15px 15px -10px rgba(255, 145, 0, 0.336);
+    box-shadow: 0px 10px 30px -15px rgb(255, 255, 255);
     padding: 6px;
     border-radius: 15px;
     font-weight: 200;
     background-color: rgba(46, 53, 62, 0.925);
 }
 
+#client-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 25px;
+    padding: 5px 20px;
+    font-weight: 100;
+    color: white;
+    border-bottom: 1px solid rgba(4, 196, 255, 0.473);
+    border-radius: 5px;
+    box-shadow: 0px 4px 5px -5px rgb(0, 140, 255);
+    text-shadow: 2px 1px 3px rgb(38, 121, 199);
+}
 
 .search-clients {  
     display: flex;
@@ -109,6 +123,7 @@ body::selection {
         padding: 5px;
         color: white;
         font-weight: 100;
+        text-shadow: 1px 2px 2px rgb(157, 177, 219);
     }
     input {  
         height: 30px;
@@ -140,8 +155,10 @@ body::selection {
     legend {
         margin: auto;
         padding: 3px;
+        font-size: 20px;
         color: white;
         font-weight: 300;
+        text-shadow: 2px 0px 3px rgba(0, 153, 255, 0.726);
     }
     fieldset {
         width: auto;
@@ -448,9 +465,15 @@ tr:hover {
 
     .form-clients {
         width: auto;
-        height: 550px;
+        height: auto;
         margin-top: 80px;
     }
+
+    #client-modal {
+        padding: 2px 20px;
+        font-size: 20px;
+    }
+    
 
     .search-clients {
         width: auto;
@@ -465,6 +488,10 @@ tr:hover {
         font-size: 13px;
     }
 
+    .search-clients legend {
+        font-size: 17px;
+    }
+        
     table {
         font-size: 14px;
     }
@@ -522,11 +549,19 @@ tr:hover {
         margin-top: 80px;
     }
 
+    #client-modal {
+        font-size: 18px;
+    }
+
     .search-clients {
         width: auto;
     }
 
     .search-clients fieldset label {
+        font-size: 13px;
+    }
+
+    .search-clients legend {
         font-size: 15px;
     }
 
@@ -588,19 +623,45 @@ tr:hover {
     }
 
     .form-clients {
-        width: 40%;
-        height: auto;
+        width: auto;
         padding: 10px;
     }
 
     .search-clients {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+    }
+
+    .search-clients fieldset label {
+        font-size: 13px;
+    }
+
+    .search-clients legend {
+        font-size: 16px;
+    }
+
+    #client-modal {
+        padding: 5px 20px;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .client-data {
+        align-content: start;
+    }
+    
+    .client-access {
+        align-content: start;
+    }
+
+    .client-information {
+        align-content: start;
     }
 
     .search-clients-buttons {
         display: flex;
-        flex-direction: column;
         padding: 5px;
     }
 
@@ -610,11 +671,11 @@ tr:hover {
 
     .search-clients input {
         font-size: 12px;
-        height: 20px;
     }
 
     .search-clients fieldset {
-        width: 240px;
+        width: 210px;
+        max-height: 430px;
         align-items: center;
     }
 
@@ -648,4 +709,19 @@ tr:hover {
     }
 }
 
+@media (max-width: 740px) {
 
+    .form-clients {
+        width: 400px;
+        align-items: center;
+        height: auto;
+        padding: 10px;
+    }
+    .search-clients {
+        justify-content: center;
+    }
+
+    .search-clients-buttons {
+        flex-direction: column;
+    }
+}

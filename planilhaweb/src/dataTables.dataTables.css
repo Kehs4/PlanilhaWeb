@@ -681,3 +681,28 @@ div.dt-container.dt-empty-footer .dt-scroll-body tbody > tr:last-child > * {
 *[dir=rtl] div.dt-container div.dt-search input {
   margin: 0 3px 0 0;
 }
+
+
+@media  (max-width: 640px) {
+  tbody {
+    flex-direction: column;
+    max-width: 100px;
+  }
+
+  colgroup {
+    display: flex;
+    flex-direction: column;
+    max-width: 10px;
+  }
+
+  table.dataTable > thead > tr > th, 
+  table.dataTable > thead > tr > td {
+    padding: 2px;
+  }
+
+  
+  td {
+    max-width: 120px;
+  }
+
+}
