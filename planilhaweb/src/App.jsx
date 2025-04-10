@@ -118,7 +118,14 @@ function App() {
           </form>
         </div>
       </div>
-        
+      <div class='alert-modal-box' id='alert-modal-box'>
+        <div class='alert-modal' id='alert-modal'>
+            <h1 id='alert-title'></h1>
+            <p id='alert-textp'></p>
+            <p id='alert-status'></p>
+            <button class='btn-confirm' id='btn-confirm-alert'>OK</button>
+        </div>
+      </div>
     <img class='vertisimg' src='/public/vertislogo2.png'></img>
 
       <table id="clientes-table">
