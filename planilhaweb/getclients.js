@@ -6,7 +6,6 @@
                 
                 const data = await response.json();
             
-                console.log(data)
                 const tableBody = document.querySelector('#clientes-table tbody');
 
                 tableBody.innerHTML = ''; 
@@ -27,6 +26,7 @@
             } catch (error) {
                 console.error('Erro ao buscar clientes:', error);
             }
-        }
+        };
+
 export default getClientes;
             

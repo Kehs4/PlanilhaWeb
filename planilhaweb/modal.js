@@ -54,4 +54,5 @@ const switchModal = () => {
       };
     };
 
+    
 export default switchModal;

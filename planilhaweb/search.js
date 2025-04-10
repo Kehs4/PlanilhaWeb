@@ -1,5 +1,5 @@
-
 // Função para puxar os dados dos clientes por doubleclick.
+
 
  async function getSearch() {
     try {
@@ -7,6 +7,9 @@
         // Endpoint retornando os dados das informações dos clientes PostgreSQL.
         const response = await fetch('http://localhost:3000/clientes');
         const data = await response.json();
+
+        const clientModal = document.getElementById('client-modal');
+        clientModal.innerText = data[client].nome_cliente;
 
         // Retornando todos os inputs das informações dos Dados dos Clientes.
         const getNomeCliente = document.getElementById('client-name-input');
@@ -61,7 +64,40 @@
                     clientCodeElement.addEventListener('dblclick', getSearch);
                 }
 
-})};
+})
+
+    async function saveInputName(req, res) {
+        pool = require('pg');
+        const app = require('express')();
+        const cors = require('cors');
+
+        const pool = new Pool({
+            user: 'postgres',
+            host: 'localhost',
+            database: 'planilhaweb',
+            port: 5432,
+            password: 'boeing',
+          });
+          
+          pool.connect();
+        
+        // Endpoint para salvar os valores que estão dentro dos inputs do Modal.
+        const response = await fetch('http://localhost:3000/clientes');
+        const data = await response.json();
+        const saveInputName = document.getElementById("client-name-input").value;
+        const getNomeCliente = document.getElementById('client-name-input');
+  
+        app.put('/clientes', async (req, res) => {
+            saveInputName = await pool.query('UPDATE clientes SET nome_cliente = ${document.getElementById("client-name-input").innerHTML} WHERE nome_cliente = $1', [saveInputName]);
+            getNomeCliente = await data[saveInputName].nome_cliente;
+            
+            res.status(200).json({ message: 'Cliente atualizado com sucesso!' });
+            
+            console.log(saveInputName);
+        });
+
+    };
+};
 
 
 export default getSearch;
