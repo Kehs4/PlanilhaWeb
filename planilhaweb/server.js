@@ -33,8 +33,8 @@ app.get('/clientes', async (req, res) => {
     const result = await pool.query('SELECT * FROM clientes ORDER BY cod_cliente');
     res.json(result.rows);
   } catch (error) {
-    console.error('Erro ao consultar clientes', error);
-    res.status(500).send('Erro no servidor');
+    console.error('Erro ao consultar clientes.', error);
+    res.status(500).send('Erro 500: Erro no servidor.');
   }
 });
 
@@ -51,6 +51,34 @@ app.put('/clientes', async (req, res) => {
 
   } catch (error) {
     return res.status(404).send('Erro 404: Cliente não encontrado.');
+  }
+});
+
+app.post('/clientes', async (req, res) => {
+  try {
+    const { nome_cliente, versao_vertis_cliente, dth_manutencao_realizada, dth_manutencao_futura, licencas_cliente, acesso_cliente_teamviewer, senha_acesso_cliente_teamviewer, acesso_cliente_anydesk, senha_acesso_cliente_anydesk, ip_servidor_cliente, contatos, email_cliente, ddd_telefone, telefone1, telefone2 } = req.body;
+
+    const result = await pool.query(
+      'INSERT INTO clientes (nome_cliente, versao_vertis_cliente, dth_manutencao_realizada, dth_manutencao_futura, licencas_cliente, acesso_cliente_teamviewer, senha_acesso_cliente_teamviewer, acesso_cliente_anydesk, senha_acesso_cliente_anydesk ,ip_servidor_cliente, contatos, email_cliente, ddd_telefone, telefone1, telefone2) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15) RETURNING *',
+      [nome_cliente, versao_vertis_cliente, dth_manutencao_realizada, dth_manutencao_futura, licencas_cliente, acesso_cliente_teamviewer, senha_acesso_cliente_teamviewer, acesso_cliente_anydesk, senha_acesso_cliente_anydesk ,ip_servidor_cliente, contatos, email_cliente, ddd_telefone, telefone1, telefone2]
+    );
+
+    res.status(201).json(result.rows[0]);
+  } catch (error) {
+    console.error('Erro ao inserir cliente.', error);
+    res.status(500).send('Erro 500: Erro na inclusão dos dados.');
+  }
+});
+
+app.delete('/clientes', async (req, res) => {
+  try {
+    const { cod_cliente } = req.body;
+    const result = await pool.query('DELETE FROM clientes WHERE cod_cliente = $1 RETURNING *', [cod_cliente]);
+
+    res.status(200).json(result.rows[0]);
+  } catch (error) {
+    console.error('Erro ao excluir cliente.', error);
+    res.status(500).send('Erro 500: Erro na exclusão dos dados.');
   }
 });
 

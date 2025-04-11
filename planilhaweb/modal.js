@@ -8,19 +8,17 @@ const switchModal = () => {
   else {
     modal.style.display = 'block'
   }
+  
+  const SalvarBtn = document.getElementById('btn-save')
+  SalvarBtn.style.display = 'block'
 
+  const deleteBtn = document.getElementById('btn-delete')
+  deleteBtn.style.display = 'block'
 
     const btn = document.getElementById('tbody-list')
     if (btn) {
       btn.addEventListener('dblclick', switchModal);
     }
-
-      window.onclick = function(event) {
-        const modal = document.querySelector('.btn-close')
-      if (event.target == modal) {
-        switchModal()
-      }
-    };
 
       const alterarBtn = document.getElementById('btn-update')
       const inputs = document.querySelectorAll('.btns')
@@ -38,7 +36,6 @@ const switchModal = () => {
           console.error("Botão 'alterarBtn' não encontrado!");
       };
       
-      const SalvarBtn = document.getElementById('btn-save')
 
       // Verifique se o botão foi encontrado
       if (SalvarBtn) {
@@ -51,7 +48,19 @@ const switchModal = () => {
           }
         )
       };
+
+      window.onclick = function(event) {
+        const btnClose = document.querySelector('.btn-close')
+        const inputs = document.querySelectorAll('.btns')
+      if (event.target == btnClose) {
+        switchModal()
+        SalvarBtn.style.display = 'none'
+        inputs.forEach(input => {
+          input.disabled = true
+      })
+      }
     };
+  };
 
     
 export default switchModal;
