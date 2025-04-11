@@ -6,6 +6,9 @@ import switchModal from '../modal.js'
 import saveData from '../saveData.js'
 import DT from 'datatables.net-dt'
 import DataTable from 'datatables.net-dt'
+import insertData from '../insertData.js'
+import insertModal from '../insertmodal.js'
+import deleteData from '../deleteData.js'
  
 DataTable.use(DT);
 
@@ -52,10 +55,10 @@ function App() {
               <div class="search-clients">
                 <fieldset class='client-data'>
                 <legend>Dados do Cliente</legend>
-                  <label for="client-name">Nome do Cliente</label>
+                  <label for="client-name">Nome do Cliente <font color="red">*</font></label>
                   <input type="text" class='btns' id="client-name-input" placeholder="Nome do Cliente" disabled></input>
                     
-                  <label for="client-cod">Código do Cliente</label>
+                  <label for="client-cod">Código do Cliente <font color="red">*</font></label>
                   <input type="number" class='btns' id="client-cod" placeholder="Código do Cliente" disabled></input>
 
                   <label for="client-version">Versão do Vertis</label>
@@ -111,8 +114,10 @@ function App() {
               
               <div class="search-clients-buttons">
                   <button class="btn-update" id='btn-update' type="button">Alterar</button>
+                  <button class="btn-insert" id='btn-insert' type="button" onClick={insertData}>Incluir</button>
                   <button class="btn-save" id='btn-save' type="button" onClick={saveData}>Salvar</button>
                   <button class="btn-close" id='btn-close' type="button">Fechar</button>
+                  <button class="btn-delete" id='btn-delete' type="button" onClick={deleteData}>Excluir</button>
               </div>
 
           </form>
@@ -146,6 +151,11 @@ function App() {
         </tbody>
        
       </table>
+      
+
+      <div class='div-insert-client'>
+          <button id='insertClientBtn' onClick={insertModal}>+ Incluir novo cliente.</button>
+      </div>
 
       <footer class='footer-vertis'>
         <div class='div-all-footer'>

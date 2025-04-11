@@ -179,6 +179,7 @@ body::selection {
 .search-clients-buttons {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin: auto;
     margin-top: 20px;
 }
@@ -210,7 +211,29 @@ input::-webkit-inner-spin-button {
     background-color: rgba(235, 102, 24, 1);
 }
 
+.btn-insert {
+    display: none;
+    min-width: 110px;
+    height: 30px;
+    font-size: 15px;
+    background-color: rgba(32, 40, 51, 0.808);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid rgba(235, 102, 24, 1);
+    margin-right: 15px;
+    font-weight: 200;
+}
+
+.btn-insert:hover {
+    scale: 1.013;
+    transition: 0.4s;
+    border-color: rgba(32, 40, 51, 0.808);
+    background-color: rgba(235, 102, 24, 1);
+}
+
 .btn-save {
+    display: none;
     min-width: 110px;
     height: 30px;
     font-size: 15px;
@@ -248,6 +271,27 @@ input::-webkit-inner-spin-button {
     transition: 0.4s;
     background-color: rgba(235, 102, 24, 1);
     
+}
+
+.btn-delete {
+    display: none;
+    min-width: 80px;
+    height: 30px;
+    font-size: 15px;
+    background-color: rgba(110, 0, 0, 0.808);
+    color: white;
+    cursor: pointer;
+    margin-left: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    font-weight: 200;
+}
+
+.btn-delete:hover {
+    border-color: rgba(255, 255, 255, 0.808);
+    scale: 1.013;
+    transition: 0.4s;
+    background-color: rgb(214, 0, 0);
 }
 
 .alert-modal-box {
@@ -386,6 +430,33 @@ tr:hover {
         font-weight: 600;
         text-shadow: -1px 3px rgba(247, 167, 155, 0.158);
     }
+}
+
+.div-insert-client {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin: auto;
+    margin-right: 40px;
+}
+
+#insertClientBtn {
+    align-items: center;
+    justify-content: end;
+    width: auto;
+    font-size: 15px;
+    height: 40px;
+    padding: 8px;
+    background-color: rgb(255, 142, 13);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+#insertClientBtn:hover {
+    background-color: rgb(255, 110, 13);
 }
 
 .footer-logo {
@@ -622,7 +693,7 @@ tr:hover {
         font-size: 15px;
     }
 
-    .btn-close, .btn-save, .btn-update {
+    .btn-close, .btn-save, .btn-update, .btn-insert, .btn-delete {
         height: 26px;
         width: 70px;
         font-size: 13px;
@@ -722,7 +793,7 @@ tr:hover {
         padding: 5px;
     }
 
-    .btn-close, .btn-save, .btn-update {
+    .btn-close, .btn-save, .btn-update, .btn-insert, .btn-delete {
         margin: 5px auto;
     }
 
