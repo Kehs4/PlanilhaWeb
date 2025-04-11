@@ -1,15 +1,18 @@
 // Função para puxar os dados dos clientes por doubleclick.
 
- async function getSearch() {
+ async function getSearch(event) {
     try {
-        const client = event.target.parentElement.rowIndex - 1;
+        
+        const rowID = event.target.parentElement.id;
+        const client = rowID - 1;
+
         // Endpoint retornando os dados das informações dos clientes PostgreSQL.
         const response = await fetch('http://localhost:3000/clientes');
         const data = await response.json();
 
         const clientModal = document.getElementById('client-modal');
         clientModal.innerText = data[client].nome_cliente;
-
+        
         // Retornando todos os inputs das informações dos Dados dos Clientes.
         const getNomeCliente = document.getElementById('client-name-input');
         const getCodCliente = document.getElementById('client-cod');
@@ -56,8 +59,9 @@
 
             
     } catch (error) {
+        console.error('Erro ao buscar dados do cliente:', error);
             } 
-
+            
 };
 
 export default getSearch;

@@ -12,6 +12,7 @@
         
                 data.forEach(cliente => {
                     const row = document.createElement('tr');
+                    const rowID = row.setAttribute('id', cliente.cod_cliente);
                     row.innerHTML = `
                         <td id="client-code">${cliente.cod_cliente}</td>
                         <td id="client-name-id">${cliente.nome_cliente}</td>
