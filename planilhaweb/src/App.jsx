@@ -22,7 +22,7 @@ function App() {
           table = new DataTable('#clientes-table')};
 
         const data3 = await table();
-
+        
       } catch (error) {
         console.error("Erro ao carregar os dados:", error);
       }
@@ -139,6 +139,7 @@ function App() {
                 <th>Senha AnyDesk</th>
                 <th>Versão Vertis</th>
             </tr>
+
         </thead>
         <tbody id='tbody-list' onDoubleClick={getSearch}>
 
