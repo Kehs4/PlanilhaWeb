@@ -179,10 +179,12 @@ body::selection {
 .search-clients-buttons {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    text-align: center;
+    justify-content: center;
     margin: auto;
     margin-top: 20px;
 }
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -281,10 +283,22 @@ input::-webkit-inner-spin-button {
     background-color: rgba(110, 0, 0, 0.808);
     color: white;
     cursor: pointer;
-    margin-left: 15px;
+    margin-left: 50px;
     border-radius: 5px;
     border: 1px solid rgb(255, 255, 255);
     font-weight: 200;
+}
+
+.btn-delete-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.btn-delete-content p {
+    margin-left: 5px;
 }
 
 .btn-delete:hover {
