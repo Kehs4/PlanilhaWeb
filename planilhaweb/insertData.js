@@ -2,6 +2,7 @@ import getClientes from "./getclients";
 
 async function insertData() {
         const nome_cliente = document.getElementById('client-name-input').value;
+        const cod_cliente = document.getElementById('client-cod').value;
         const versao_vertis_cliente = document.getElementById('client-version').value;
         const dth_manutencao_realizada = document.getElementById('client-maintenance').value;
         const dth_manutencao_futura = document.getElementById('client-maintenance-future').value;
@@ -28,7 +29,7 @@ async function insertData() {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({nome_cliente, versao_vertis_cliente, dth_manutencao_realizada, dth_manutencao_futura, licencas_cliente, acesso_cliente_teamviewer, senha_acesso_cliente_teamviewer, acesso_cliente_anydesk, senha_acesso_cliente_anydesk, ip_servidor_cliente, contatos, email_cliente, ddd_telefone, telefone1, telefone2}),
+        body: JSON.stringify({nome_cliente, cod_cliente, versao_vertis_cliente, dth_manutencao_realizada, dth_manutencao_futura, licencas_cliente, acesso_cliente_teamviewer, senha_acesso_cliente_teamviewer, acesso_cliente_anydesk, senha_acesso_cliente_anydesk, ip_servidor_cliente, contatos, email_cliente, ddd_telefone, telefone1, telefone2}),
     });
     
     if (response.ok) {

@@ -1,7 +1,13 @@
 import getClientes from "./getclients";
 
 async function deleteData() {
-    const cod_cliente = document.getElementById('client-code').value;
+    const cod_cliente = document.getElementById('client-cod').value;
+    const nome_cliente = document.getElementById('client-name-input').value;
+    const showAlert = document.getElementById('alert-modal-box')
+    const alertTitle = document.getElementById('alert-title')
+    const alertParagraph = document.getElementById('alert-textp')
+    const alertStatus = document.getElementById('alert-status')
+    const alertClose = document.getElementById('btn-confirm-alert')
 
     const response = await fetch('http://localhost:3000/clientes', {
         method: 'DELETE',
@@ -22,7 +28,6 @@ async function deleteData() {
         alertClose.addEventListener('click', function() {
             showAlert.style.display = 'none';
             getClientes();
-
         })
     } else {
         const error = await response.text();

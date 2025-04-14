@@ -14,13 +14,18 @@ const switchModal = () => {
 
   const deleteBtn = document.getElementById('btn-delete')
   deleteBtn.style.display = 'block'
+  
+  const saveBtn = document.getElementById('btn-save')
+  saveBtn.style.display = 'block'
+
+  const alterarBtn = document.getElementById('btn-update')
+  alterarBtn.style.display = 'block'
 
     const btn = document.getElementById('tbody-list')
     if (btn) {
       btn.addEventListener('dblclick', switchModal);
     }
 
-      const alterarBtn = document.getElementById('btn-update')
       const inputs = document.querySelectorAll('.btns')
 
       // Verifique se o botão foi encontrado

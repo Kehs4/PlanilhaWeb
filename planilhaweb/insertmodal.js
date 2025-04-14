@@ -13,6 +13,20 @@ const modal = document.querySelector('.div-form-clients')
     const insertBtn = document.getElementById('btn-insert')
     insertBtn.style.display = 'block'
 
+    const SalvarBtn = document.getElementById('btn-save')
+    SalvarBtn.style.display = 'none'
+
+    const alterarBtn = document.getElementById('btn-update')
+    alterarBtn.style.display = 'none'
+
+    const deleteBtn = document.getElementById('btn-delete')
+    deleteBtn.style.display = 'none'
+
+    const inputs = document.querySelectorAll('.btns')
+    inputs.forEach(input => {
+        input.disabled = false
+    });
+
     const InsertBtn = document.getElementById('insertClientBtn')
     if (InsertBtn) {
         InsertBtn.addEventListener('dblclick', switchModal) 
