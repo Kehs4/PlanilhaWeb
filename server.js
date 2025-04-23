@@ -14,9 +14,10 @@ app.use(cors(corsOptions)) // Use this after the variable declaration
 
 const pool = new Pool({
   user: 'postgres',
-  host: 'localhost',
-  database: 'planilhaweb',
+  host: '192.168.200.2',
+  database: 'gpi_financ_paula',
   port: 5432,
+  password: 'boeing'
 });
 
 pool.connect();
@@ -81,7 +82,7 @@ app.delete('/clientes', async (req, res) => {
   }
 });
 
-app.get('/clientes/:cod_cliente', (req, res) => {
+app.get('/clientes/id=:cod_cliente', (req, res) => {
   const { cod_cliente } = req.params;
   const query = 'SELECT * FROM clientes WHERE cod_cliente = $1';
 
