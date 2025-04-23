@@ -1,0 +1,976 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Archivo", sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 60px;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 238, 213) 60%, rgb(255, 173, 67) 100%);
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    h1 {
+        text-shadow: -2px 1px rgba(163, 163, 163, 0.212);
+    }
+}
+
+body {
+    position: relative;
+    padding-bottom: 250px;
+    background-color: rgb(29, 33, 39);
+    min-height: 100vh;
+}
+
+body::selection {
+    background-color: rgba(0, 107, 54, 0.596);
+    color: white;
+}
+
+.nav-title {
+    display: flex;
+    margin-left: 15px;
+    align-items: center;
+}
+
+.menu-img {
+    margin-right: 25px;
+}
+
+.menu-img:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.gpi-title {
+    color: rgb(8, 17, 43);
+    font-weight: 100;
+    font-size: 26px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.vertisimg {
+    z-index: -1;
+    position: fixed;
+    bottom: 20vh;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+}
+
+.vertisimg::selection{
+    background-color: rgba(29, 33, 39, 0.611);
+}
+
+.menu-vertis-box {
+    display: none;
+    background-color: white;
+    color: black;
+    width: 15dvw;
+    height: auto;
+}
+
+.div-form-clients {
+    display: none; 
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(29, 33, 39, 0.611);
+}
+
+.div-form-clients-content{
+    border-radius: 5px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-clients {
+    display: flex;
+    width: 1000px;
+    height: auto;
+    margin-top: 110px;
+    flex-direction: column;
+    align-items: center;
+    border: 1px rgb(255, 255, 255) solid;
+    border-top: none;
+    border-bottom: none;
+    box-shadow: 0px 10px 30px -15px rgb(255, 255, 255);
+    padding: 6px;
+    border-radius: 15px;
+    font-weight: 200;
+    background-color: rgba(46, 53, 62, 0.925);
+}
+
+.client-identifier {
+    display: flex;
+    width: 100%;
+}
+
+#client-modal {
+    display: flex;
+    margin: auto;
+    justify-content: end;
+    font-size: 25px;
+    padding: 5px 20px;
+    font-weight: 100;
+    color: white;
+    border-bottom: 1px solid rgba(4, 196, 255, 0.473);
+    border-radius: 5px;
+    box-shadow: 0px 4px 5px -5px rgb(0, 140, 255);
+    text-shadow: 2px 1px 3px rgb(38, 121, 199);
+}
+
+.btn-info-client {
+    position: fixed;
+    margin-top: 5px;
+    padding: 2px;
+    height: 20px;
+    font-size: 10px;
+    background-color: rgba(32, 40, 51, 0.808);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid rgba(4, 196, 255, 0.473);
+    box-shadow: 0px 4px 5px -5px rgb(0, 140, 255);
+    font-weight: 200;
+}
+
+.btn-info-client a {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-info-client:hover {
+    transition: 0.2s;
+    scale: 1.01;
+    border-color: rgba(255, 255, 255, 0.808);
+    background-color: rgb(94, 145, 255);
+    
+}
+
+.search-clients {  
+    display: flex;
+    margin-top: 5px;
+    background-color: rgba(46, 53, 63, 0.808);
+    label {
+        padding: 5px;
+        color: white;
+        font-weight: 100;
+        text-shadow: 1px 2px 2px rgb(157, 177, 219);
+    }
+    input {  
+        height: 30px;
+        width: 250px;
+        padding: 15px;
+        margin: 4px;
+        font-size: 15px;
+        outline: none;
+        border-radius: 7px;
+        font-weight: 200;
+        border: 1px solid rgb(64, 79, 97);
+        color: rgb(255, 255, 255);
+        background-color: rgb(45, 50, 59);
+    }
+    input:disabled {
+        color: rgba(165, 186, 216, 0.747);
+        border: 1px solid rgb(49, 49, 49);
+        background-color: rgb(40, 45, 54);
+        cursor: not-allowed;
+    }
+    input:focus {
+        border: 1px solid rgb(255, 145, 0);
+        color: white;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        transition: 0.5s all;
+    }
+    legend {
+        margin: auto;
+        padding: 3px;
+        font-size: 20px;
+        color: white;
+        font-weight: 300;
+        text-shadow: 2px 0px 3px rgba(0, 153, 255, 0.726);
+    }
+    fieldset {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        margin: 10px;
+        padding: 15px;
+        border: 1px groove;
+        border-radius: 15px;
+        border-top: none;
+        border-bottom: none;
+        border-color: rgba(252, 252, 252, 0.411);
+    }
+}
+
+.search-clients-buttons {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-left: 200px;
+    margin-top: 20px;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.btn-update {
+    min-width: 110px;
+    height: 30px;
+    font-size: 15px;
+    background-color: rgba(32, 40, 51, 0.808);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid rgba(235, 102, 24, 1);
+    margin-right: 15px;
+    font-weight: 200;
+}
+
+.btn-update:hover {
+    scale: 1.013;
+    transition: 0.4s;
+    border-color: rgba(32, 40, 51, 0.808);
+    background-color: rgba(235, 102, 24, 1);
+}
+
+.btn-insert {
+    display: none;
+    min-width: 110px;
+    height: 30px;
+    font-size: 15px;
+    background-color: rgba(32, 40, 51, 0.808);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid rgba(235, 102, 24, 1);
+    margin-right: 15px;
+    font-weight: 200;
+}
+
+.btn-insert:hover {
+    scale: 1.013;
+    transition: 0.4s;
+    border-color: rgba(32, 40, 51, 0.808);
+    background-color: rgba(235, 102, 24, 1);
+}
+
+.btn-save {
+    display: none;
+    min-width: 110px;
+    height: 30px;
+    font-size: 15px;
+    background-color: rgba(32, 40, 51, 0.808);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid rgba(235, 102, 24, 1);
+    margin-right: 15px;
+    font-weight: 200;
+}
+
+.btn-save:hover {
+    scale: 1.013;
+    transition: 0.4s;
+    border-color: rgba(32, 40, 51, 0.808);
+    background-color: rgba(235, 102, 24, 1);
+}
+
+.btn-close {
+    min-width: 110px;
+    height: 30px;
+    font-size: 15px;
+    background-color: rgba(32, 40, 51, 0.808);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid rgba(235, 102, 24, 1);
+    font-weight: 200;
+}
+
+.btn-close:hover {
+    border-color: rgba(32, 40, 51, 0.808);
+    scale: 1.013;
+    transition: 0.4s;
+    background-color: rgba(235, 102, 24, 1);
+    
+}
+
+.btn-delete-box {
+    display: flex;
+    margin-left: 150px;
+}
+
+.btn-delete {
+    display: none;
+    min-width: 40px;
+    height: 30px;
+    font-size: 15px;
+    background-color: rgba(110, 0, 0, 0.808);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    font-weight: 200;
+}
+
+.btn-delete-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.btn-delete-content p {
+    margin-left: 5px;
+}
+
+.btn-delete:hover {
+    border-color: rgba(255, 255, 255, 0.808);
+    scale: 1.013;
+    transition: 0.4s;
+    background-color: rgb(214, 0, 0);
+}
+
+.alert-modal-box {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.alert-modal {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.13);
+}
+
+.alert-modal h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: rgb(29, 33, 39);
+}
+
+.alert-modal p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: rgb(63, 72, 85);
+}
+
+#alert-status {
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    color: rgb(252, 164, 0);
+}
+
+.btn-confirm {
+    background-color: rgb(235, 102, 24);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.btn-confirm:hover {
+    background-color: rgb(255, 145, 0);
+    transition: 0.4s;
+}
+
+.btn-alert-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.btn-yes {
+    display: none;
+    background-color: rgb(235, 102, 24);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 200;
+    margin-right: 5px;
+}
+
+.btn-no {
+    display: none;
+    background-color: rgb(235, 102, 24);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 200;
+}
+
+th {
+    background: rgb(235, 102, 24);
+    background: linear-gradient(0deg, rgb(235, 102, 24) 0%, rgb(255, 145, 0) 41%, rgb(255, 196, 0) 100%);
+    color: white;
+    font-weight: 400;
+    border: none;
+}
+
+table {
+    max-width: 98%;
+    border-collapse: collapse;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: white;
+    margin-top: 20px;
+    font-weight: 200;
+}
+
+table, th, td {
+    border: 1px solid rgb(219, 219, 219);
+    border-top: none;
+    border-left: none;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    
+}
+
+th > span {
+    text-shadow: 1px 1px 3px black;
+
+}
+
+tr:hover {
+    background-color: rgb(224, 224, 224);
+    cursor: pointer;
+}
+
+.footer-vertis {
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+    margin: auto;
+    font-style: italic;
+    bottom: 0;
+    background-color: rgba(224, 224, 224, 0.884);
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.footer-vertis::selection {
+    color: white;
+}
+
+.div-all-footer {
+    border-color: rgba(28, 40, 66, 0.842);
+    border-radius: 50px;
+    width: 75%;
+    margin: auto;
+    border-top: none;
+    border-bottom: none;
+    display: grid;
+    align-items: start;
+    justify-items: center;
+    justify-content: space-evenly;
+    p {
+        margin: 7px;
+        font-size: 17px;
+        font-weight: 300;
+    }
+
+    h1 {
+        font-size: 25px;
+        font-weight: 600;
+        text-shadow: -1px 3px rgba(247, 167, 155, 0.158);
+    }
+}
+
+.div-insert-client {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin: auto;
+    margin-right: 40px;
+}
+
+#insertClientBtn {
+    align-items: center;
+    justify-content: end;
+    width: auto;
+    font-size: 15px;
+    height: 40px;
+    padding: 8px;
+    background-color: rgb(255, 142, 13);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+#insertClientBtn:hover {
+    background-color: rgb(255, 110, 13);
+}
+
+.footer-logo {
+    display: grid;
+    grid-column: 1 / 1;
+    align-content: start;
+    margin-top: 10px;
+    color: black;
+    text-align: center;
+    p {
+        font-weight: 400;
+        color: rgba(44, 44, 44, 0.781);
+        text-shadow: -1px 1px rgba(0, 153, 255, 0.253);
+        font-size: 13px;
+    }
+}
+
+.footer-logo:hover {
+    transform: scale(1.02);
+    transition: 0.5s;
+    p {
+        color: rgb(235, 102, 24);
+    }
+}
+
+.footer-links {
+    display: grid;
+    grid-column: 2 / 3;
+    align-items: start;
+    margin-top: 10px;
+
+    h1 {
+        font-weight: 400;
+        margin-bottom: 10px;
+    }
+    a:hover {
+        transform: scaleX(1.02);
+        color: rgb(235, 102, 24);
+
+    }
+}
+
+.footer-infos {
+    grid-column: 3 / 3;
+    display: grid;
+    
+}
+
+.a-contact:hover {
+    transform: scale(1.007);
+    transition: 0.5s all;
+        color: rgb(235, 102, 24);
+        
+}
+
+.mail-svg:hover {
+    color: rgb(235, 102, 24);
+    transition: 0.5s all;
+}
+
+
+.time-svg {
+    display: flex;
+    align-items: center;
+}
+
+.mail-svg {
+    display: flex;
+    align-items: center;
+}
+
+.telefone-svg {
+    display: flex;
+    align-items: center;    
+}
+
+.a-whatsapp:hover {
+    transform: scale(1.007);
+    transition: 0.5s all;
+        color: rgb(235, 102, 24);
+        
+}
+
+.whatsapp-svg:hover {
+    color: rgb(235, 102, 24);
+    transition: 0.5s all;
+}
+
+.whatsapp-svg {
+    display: flex;
+    align-items: center;
+}
+
+.a-instagram:hover {
+    transform: scale(1.007);
+    transition: 0.5s all;
+        color: rgb(235, 102, 24);
+        
+}
+
+.instagram-logo:hover {
+    color: rgb(235, 102, 24);
+    transition: 0.5s all;
+}
+
+.instagram-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-local {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    font-weight: 200;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+/* ...existing code... */
+
+/* Responsividade para telas grandes (largura máxima de 1200px) */
+@media (max-width: 1200px) {
+    header {
+        height: auto;
+        padding: 15px;
+    }
+
+    .gpi-title {
+        font-size: 22px;
+        margin-left: 15px;
+    }
+
+    .form-clients {
+        width: auto;
+        height: auto;
+        margin-top: 80px;
+    }
+
+    #client-modal {
+        padding: 2px 20px;
+        font-size: 20px;
+    }
+    
+
+    .search-clients {
+        width: auto;
+    }
+
+    .search-clients fieldset {
+        height: 450px;
+    }
+
+    .search-clients input {
+        width: 150px;
+        font-size: 13px;
+    }
+
+    .search-clients legend {
+        font-size: 17px;
+    }
+
+    .search-clients-buttons {
+        margin-left: 110px;
+    }
+
+    .btn-delete-box {
+        margin-left: 80px;
+    }
+        
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    .footer-vertis {
+        padding: 5px;
+        margin: auto;
+    }
+
+    .footer-logo {
+        margin-right: 50px;
+    }
+
+    .footer-logo p {
+        font-size: 12px;
+    }
+
+    .footer-links p {
+        font-size: 14px;
+        margin-right: 30px;
+    }
+
+    .footer-links h1 {
+        font-size: 20px;
+    }
+
+    .footer-infos p {
+        font-size: 14px;
+    }
+
+    .footer-local {
+        font-size: 11px;
+    }
+}
+
+
+/* Responsividade para tablets (largura máxima de 1000px) */
+@media (max-width: 1000px) {
+    header {
+        height: auto;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .gpi-title {
+        font-size: 20px;
+    }
+
+    .form-clients {
+        width: auto;
+        margin-top: 80px;
+    }
+
+    #client-modal {
+        font-size: 18px;
+    }
+
+    .search-clients {
+        width: auto;
+    }
+
+    .search-clients fieldset label {
+        font-size: 13px;
+    }
+
+    .search-clients legend {
+        font-size: 15px;
+    }
+
+    .btn-close, .btn-save, .btn-update, .btn-insert {
+        height: 26px;
+        width: 70px;
+        font-size: 13px;
+    }
+
+    .btn-delete-box {
+        margin-left: 50px;
+    }
+
+    .search-clients input {
+        width: 150px;
+        font-size: 12px;
+    }
+
+    .search-clients-buttons {
+        margin-top: 10px;
+        margin-left: 50px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+    
+    .footer-vertis {
+        font-size: 10px;
+        padding: 5px;
+        margin: auto;
+    }
+
+    .footer-logo {
+        margin-right: 50px;
+    }
+
+    .footer-logo p {
+        font-size: 12px;
+    }
+
+    .footer-links p {
+        font-size: 13px;
+        margin-right: 30px;
+    }
+
+    .footer-links h1 {
+        font-size: 18px;
+    }
+
+    .footer-infos p {
+        font-size: 13px;
+    }
+
+    .footer-local {
+        font-size: 10px;
+    }
+}
+
+/* Responsividade para dispositivos móveis (largura máxima de 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 6px;
+    }
+
+    .form-clients {
+        width: auto;
+        padding: 10px;
+    }
+
+    .search-clients {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+    }
+
+    .search-clients fieldset label {
+        font-size: 13px;
+    }
+
+    .search-clients legend {
+        font-size: 16px;
+    }
+
+    #client-modal {
+        padding: 5px 20px;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .client-data {
+        align-content: start;
+    }
+    
+    .client-access {
+        align-content: start;
+    }
+
+    .client-information {
+        align-content: start;
+    }
+
+    .search-clients-buttons {
+        display: flex;
+        padding: 5px;
+        margin-left: 0px;
+
+    }
+
+    .btn-delete-box {
+        margin-left: 0px;
+    }
+
+    .btn-close, .btn-save, .btn-update, .btn-insert, .btn-delete {
+        margin: 5px auto;
+        font-size: 13px;
+    }
+
+    .search-clients input {
+        font-size: 12px;
+    }
+
+    .search-clients fieldset {
+        width: 210px;
+        max-height: 430px;
+        align-items: center;
+    }
+
+    .search-clients fieldset label {
+        font-size: 12px;
+    }
+
+    table {
+        font-size: 10px;
+    }
+
+    .footer-logo p {
+        font-size: 13px;
+    }
+
+    .footer-links p {
+        font-size: 12px;
+        margin-right: 30px;
+    }
+
+    .footer-links h1 {
+        font-size: 16px;
+    }
+
+    .footer-infos p {
+        font-size: 12px;
+    }
+
+    .footer-local {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 740px) {
+
+    .form-clients {
+        width: 400px;
+        align-items: center;
+        height: auto;
+        padding: 10px;
+    }
+    .search-clients {
+        justify-content: center;
+    }
+
+    .search-clients-buttons {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,2 @@
+# Planilha Web dos Clientes da GPI - Vertis.
+    Criada para visualização em página dos dados dos clientes da GPI, separando-os por colunas facilitando suas consultas e pesquisas das unidades operacionais.
