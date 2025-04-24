@@ -172,7 +172,13 @@ body::selection {
 
 .search-clients-buttons-info {
     display: flex;
-    justify-content: center;
+    position: fixed;
+    padding: 12px;
+    z-index: 3;
+    width: 100%;
+    bottom: 0;
+    background-color: rgb(8, 9, 12);
+    justify-content: end;
     align-items: center;
     gap: 10px;
 }
@@ -187,7 +193,25 @@ body::selection {
 }
 
 .client-manteinance-info {
-    min-width: 49%;
+    min-width: 48.5%;
+}
+
+.selects-option {
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    margin-left: 15px;
+    gap: 2px;
+}
+
+.selects-option select {
+    margin: 5px;
+}
+
+.selects-option-fatemail {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
 }
 
 
