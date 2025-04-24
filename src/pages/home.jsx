@@ -12,6 +12,7 @@ import insertModal from '../api/insertmodal.js'
 import deleteData from '../api/deleteData.js'
 import { Link } from 'react-router-dom'
 import infoClientes from '../infoclientes.js'
+import atualizarVisibilidadeColunas from '../api/escondertable.js'
  
 DataTable.use(DT);
 
@@ -47,7 +48,9 @@ function Home() {
     if (label && label.textContent.includes('Search')) {
       label.textContent = 'Cliente: ';
     }
-        
+     
+    const esconderTable = await atualizarVisibilidadeColunas();
+    
       } catch (error) {
         console.error("Erro ao carregar os dados:", error);
       }
@@ -120,6 +123,15 @@ function Home() {
 
                   <label htmlFor="client-licences">IP Servidor do Cliente</label>
                   <input type="text" className='btns' id="client-ip-server" placeholder="IP" disabled></input>
+
+                  <label htmlFor="client-alternative">Acesso Alternativo Servidor</label>
+                  <input type="text" className='btns' id="client-alternative" placeholder="AnyDesk do cliente" disabled></input>
+
+                  <label htmlFor="client-user">Usuário do Servidor</label>
+                  <input type="text" className='btns' id="client-user" placeholder="Usuário do Servidor do Cliente" disabled></input>
+                
+                  <label htmlFor="client-user-password">Senha do Usuário</label>
+                  <input type="text" className='btns' id="client-user-password" placeholder="Senha do Usuário do Cliente" disabled></input>
                 </fieldset>
                   
                 <fieldset className='client-contacts'>

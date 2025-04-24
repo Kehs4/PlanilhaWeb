@@ -55,6 +55,9 @@ const modal = document.querySelector('.div-form-clients')
         const getAcessoADCliente = document.getElementById('client-anydesk');
         const getAcessoPWADCliente = document.getElementById('client-anydesk-password');
         const getIPServidorCliente = document.getElementById('client-ip-server');
+        const getAlternativeAccess = document.getElementById('client-alternative');
+        const getUserServer = document.getElementById('client-user');
+        const getUserPasswordServer = document.getElementById('client-user-password');
 
             // Declarando as informações dentro dos inputs dos Dados de Acesso dos Clientes.
             getAcessoTVCliente.value = null;
@@ -62,7 +65,10 @@ const modal = document.querySelector('.div-form-clients')
             getAcessoADCliente.value = null;
             getAcessoPWADCliente.value = null;
             getIPServidorCliente.value = null;
-        
+            getAlternativeAccess.value = null;
+            getUserServer.value = null;
+            getUserPasswordServer.value = null;
+            
         // Retornando todos os inputs das informações dos Dados dos Contatos dos Clientes.
         const getRespCliente = document.getElementById('client-manager');
         const getEmailCliente = document.getElementById('client-email');

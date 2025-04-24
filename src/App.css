@@ -103,8 +103,8 @@ body::selection {
 .form-clients {
     display: flex;
     width: 1050px;
-    height: 68dvh;
-    margin-top: 110px;
+    height: auto;
+    margin-top: 90px;
     flex-direction: column;
     align-items: center;
     border: 1px rgb(255, 255, 255) solid;
@@ -684,6 +684,7 @@ tr:hover {
 /* Responsividade para telas grandes (largura máxima de 1200px) */
 @media (max-width: 1200px) {
     header {
+        width: auto;
         height: auto;
         padding: 15px;
     }
@@ -699,18 +700,23 @@ tr:hover {
         margin-top: 80px;
     }
 
+    .btn-info-client {
+        display: flex;
+        position: relative;
+        align-items: center;
+    }
+
     #client-modal {
         padding: 2px 20px;
         font-size: 20px;
     }
-    
 
     .search-clients {
         width: auto;
     }
 
     .search-clients fieldset {
-        height: 450px;
+        height: auto;
     }
 
     .search-clients input {
@@ -771,7 +777,7 @@ tr:hover {
 
 
 /* Responsividade para tablets (largura máxima de 1000px) */
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
     header {
         height: auto;
         padding: 8px;
@@ -784,7 +790,7 @@ tr:hover {
 
     .form-clients {
         width: auto;
-        margin-top: 80px;
+        margin-top: 70px;
     }
 
     #client-modal {
@@ -866,15 +872,26 @@ tr:hover {
     }
 
     .form-clients {
-        width: auto;
+        width: 500px;
         padding: 10px;
+    }
+
+    .dt-search label {
+        margin-left: -155px;
+    }
+
+    #insertClientBtn {
+        height: 35px;
+        width: 120px;
+        font-size: 12px;
+        display: flex;
     }
 
     .search-clients {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        
+        height: auto;
     }
 
     .search-clients fieldset label {
@@ -907,7 +924,6 @@ tr:hover {
         display: flex;
         padding: 5px;
         margin-left: 0px;
-
     }
 
     .btn-delete-box {
@@ -916,7 +932,8 @@ tr:hover {
 
     .btn-close, .btn-save, .btn-update, .btn-insert, .btn-delete {
         margin: 5px auto;
-        font-size: 13px;
+        font-size: 15px;
+        height: 30px;
     }
 
     .search-clients input {
@@ -925,7 +942,7 @@ tr:hover {
 
     .search-clients fieldset {
         width: 210px;
-        max-height: 430px;
+        height: auto;
         align-items: center;
     }
 
@@ -934,7 +951,16 @@ tr:hover {
     }
 
     table {
-        font-size: 10px;
+        font-size: 13px;
+    }
+
+    thead tr {
+        font-size: 14px;
+        height: 27px;
+    }
+
+    #clientes-table {
+        width: 80%;
     }
 
     .footer-logo p {
@@ -962,16 +988,43 @@ tr:hover {
 @media (max-width: 740px) {
 
     .form-clients {
-        width: 400px;
+        width: auto;
         align-items: center;
+        justify-content: center;
         height: auto;
         padding: 10px;
     }
     .search-clients {
         justify-content: center;
+        gap: 40px; 
     }
 
     .search-clients-buttons {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .footer-logo img {
+        height: 50px;
+        width: 70px;
+    }
+    .footer-vertis p {
+        font-size: 9px;
+    }
+    
+    .footer-logo {
+        margin-left: -50px;
+        height: 20px;
+        width: 130px;
+    }
+
+    .footer-links {
+        margin-left: -45px;
+    }
+    
+    .footer-infos{
+
     }
 }
