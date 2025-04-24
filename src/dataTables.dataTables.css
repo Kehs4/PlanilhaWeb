@@ -464,10 +464,12 @@ div.dt-container div.dt-layout-row {
   align-items: center;
   width: 100%;
   margin: 1em auto;
+  
 }
 
 .dt-layout-row {
   display: none;
+
 }
 
 div.dt-container div.dt-layout-row div.dt-layout-cell {
@@ -475,13 +477,10 @@ div.dt-container div.dt-layout-row div.dt-layout-cell {
   justify-content: space-between;
   align-items: center;
 }
-div.dt-container div.dt-layout-row div.dt-layout-cell.dt-layout-start {
-  justify-content: flex-start;
-  margin-right: auto;
-}
+
 div.dt-container div.dt-layout-row div.dt-layout-cell.dt-layout-end {
   justify-content: flex-end;
-  margin-left: auto;
+  margin-left: 18px;
 }
 div.dt-container div.dt-layout-row div.dt-layout-cell:empty {
   display: none;
@@ -498,16 +497,12 @@ div.dt-container div.dt-layout-row div.dt-layout-cell:empty {
   div.dt-container div.dt-layout-row:not(.dt-layout-table) div.dt-layout-cell > * {
     margin: 0.5em 0;
   }
-  div.dt-container div.dt-layout-row:not(.dt-layout-table) div.dt-layout-cell.dt-layout-start {
-    margin-right: 0;
-  }
+
   div.dt-container div.dt-layout-row:not(.dt-layout-table) div.dt-layout-cell.dt-layout-end {
     margin-left: 0;
   }
 }
-div.dt-container div.dt-layout-start > *:not(:last-child) {
-  margin-right: 1em;
-}
+
 div.dt-container div.dt-layout-end > *:not(:first-child) {
   margin-left: 1em;
 }
@@ -524,9 +519,7 @@ div.dt-container div.dt-layout-table > div {
 }
 
 @media screen and (max-width: 767px) {
-  div.dt-container div.dt-layout-start > *:not(:last-child) {
-    margin-right: 0;
-  }
+
   div.dt-container div.dt-layout-end > *:not(:first-child) {
     margin-left: 0;
   }
@@ -547,7 +540,7 @@ div.dt-container .dt-search input {
   border: 1px solid white;
   padding: 6px;
   color: white;
-  margin-left: 6px;
+  margin-left: 2px;
   background-color: rgb(32, 36, 44);
 }
 
@@ -625,10 +618,12 @@ div.dt-container .dt-paging .ellipsis {
   padding: 0 0.5em;
 }
 div.dt-container .dt-length,
-div.dt-container .dt-search,
 div.dt-container .dt-info,
-div.dt-container .dt-processing,
 div.dt-container .dt-paging {
+  display: none;
+}
+
+div.dt-container .dt-search{
   color: white;
   text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.507);
 }
@@ -672,9 +667,7 @@ div.dt-container.dt-empty-footer .dt-scroll-body tbody > tr:last-child > * {
 *[dir=rtl] table.dataTable td.dt-type-date {
   text-align: left;
 }
-*[dir=rtl] div.dt-container div.dt-layout-cell.dt-start {
-  text-align: right;
-}
+
 *[dir=rtl] div.dt-container div.dt-layout-cell.dt-end {
   text-align: left;
 }

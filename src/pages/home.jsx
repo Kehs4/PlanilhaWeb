@@ -4,6 +4,7 @@ import getClientes from '../api/getclients.js'
 import getSearch from '../api/search.js'
 import switchModal from '../modal.js'
 import saveData from '../api/saveData.js'
+import $ from 'jquery'
 import DT from 'datatables.net-dt'
 import DataTable from 'datatables.net-dt'
 import insertData from '../api/insertData.js'
@@ -24,10 +25,28 @@ function Home() {
 
         const data2 = await switchModal();
 
-        let table = async () => {
-          table = new DataTable('#clientes-table')};
+        const tableId = '#clientes-table';
 
-        const data3 = await table();
+    // Garante que DataTables só seja inicializado uma vez
+    if ($.fn.DataTable.isDataTable(tableId)) {
+      $(tableId).DataTable().destroy();
+    }
+
+    $(tableId).DataTable({
+      paging: false,
+      ordering: true,
+      info: true,
+      searching: true,
+      pageLength: -1
+    });
+
+    // Remove o seletor "entries per page"
+    document.querySelector('.dt-length')?.remove();
+  
+    const label = document.querySelector('.dt-search label');
+    if (label && label.textContent.includes('Search')) {
+      label.textContent = 'Cliente: ';
+    }
         
       } catch (error) {
         console.error("Erro ao carregar os dados:", error);
@@ -37,7 +56,7 @@ function Home() {
     carregarScripts();
 
   }, []); // O array vazio garante que isso seja chamado apenas uma vez, na montagem do componente
-  
+
   return (
     <>
         <header>
@@ -48,6 +67,10 @@ function Home() {
               </div>
           </nav>
         </header>
+
+      <div className='div-insert-client'>
+        <button id='insertClientBtn' onClick={insertModal}>+ Incluir novo cliente.</button>
+      </div>
 
       <div className="div-form-clients">
         <div className="div-form-clients-content">
@@ -170,11 +193,6 @@ function Home() {
         </tbody>
        
       </table>
-      
-
-      <div className='div-insert-client'>
-          <button id='insertClientBtn' onClick={insertModal}>+ Incluir novo cliente.</button>
-      </div>
 
       <footer className='footer-vertis'>
         <div className='div-all-footer'>

@@ -14,10 +14,9 @@ app.use(cors(corsOptions)) // Use this after the variable declaration
 
 const pool = new Pool({
   user: 'postgres',
-  host: '192.168.200.2',
-  database: 'gpi_financ_paula',
+  host: 'localhost',
+  database: 'planilhaweb',
   port: 5432,
-  password: 'boeing'
 });
 
 pool.connect();

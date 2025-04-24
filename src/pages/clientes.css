@@ -5,23 +5,11 @@
     font-family: "Archivo", sans-serif;
 }
 
-header {
-    width: 100%;
-    height: 60px;
-    background: rgb(255, 255, 255);
-    background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 238, 213) 60%, rgb(255, 173, 67) 100%);
-    align-content: center;
-    align-items: center;
-    text-align: center;
-    h1 {
-        text-shadow: -2px 1px rgba(163, 163, 163, 0.212);
-    }
-}
 
 body {
     position: relative;
     padding-bottom: 250px;
-    background-color: rgb(25, 28, 34);
+    background-color: rgb(16, 19, 24);
     min-height: 100vh;
 }
 
@@ -93,7 +81,14 @@ body::selection {
     justify-content: center;
     margin: auto;
     padding: 15px;
-    background-color: rgb(29, 33, 39);
+    font-size: 25px;
+    padding: 5px 20px;
+    font-weight: 100;
+    color: white;
+    border-bottom: 1px solid rgba(255, 167, 4, 0.473);
+    border-radius: 5px;
+    box-shadow: 0px 4px 5px -5px rgb(255, 145, 0);
+    text-shadow: 2px 1px 3px rgb(124, 123, 121);
 }
 
 #client-ddd {
@@ -104,6 +99,9 @@ body::selection {
     width: 250px;
 }
 
+.form-clients {
+    background-color: rgba(16, 19, 24, 0.925);
+}
 .search-clients-info {  
     display: flex;
     width: 90%;
@@ -114,27 +112,27 @@ body::selection {
     label {
         display: flex;
         padding: 5px;
-        color: white;
+        color: rgb(252, 151, 56);
         font-weight: 100;
-        text-shadow: 1px 2px 2px rgb(157, 177, 219);
+        text-shadow: 0px 0px 2px rgba(209, 124, 54, 0.555);
     }
     input {  
         height: 30px;
         width: 250px;
         padding: 15px;
-        margin: 4px;
+        margin: 5px;
         font-size: 15px;
         outline: none;
         border-radius: 7px;
         font-weight: 200;
         border: 1px solid rgb(64, 79, 97);
         color: rgb(255, 255, 255);
-        background-color: rgb(45, 50, 59);
+        background-color: rgb(29, 32, 37);
     }
     input:disabled {
-        color: rgba(165, 186, 216, 0.747);
+        color: rgba(204, 216, 233, 0.808);
         border: 1px solid rgb(49, 49, 49);
-        background-color: rgb(40, 45, 54);
+        background-color: rgba(16, 19, 24, 0.925);
         cursor: not-allowed;
     }
     input:focus {
@@ -147,15 +145,15 @@ body::selection {
     }
     legend {
         margin: auto;
-        box-shadow: 0px 1px 3px rgba(0, 153, 255, 0.966);
+        box-shadow: 0px 4px 5px -5px rgb(255, 145, 0);
         border-radius: 8px;
         border: 1px solid rgba(255, 255, 255, 0.884);
         padding: 5px 25px;
         font-size: 20px;
-        background-color: rgb(25, 28, 34);
+        background-color: rgb(7, 10, 15);
         color: rgb(255, 255, 255);
         font-weight: 200;
-        text-shadow: 1px 2px 3px rgba(185, 185, 185, 0.767);
+        text-shadow: 1px 2px 3px rgba(165, 125, 88, 0.767);
     }
     fieldset {
         display: flex;
@@ -164,7 +162,7 @@ body::selection {
         padding: 15px;
         border: 1px groove;
         border-radius: 15px;
-        background-color: rgb(29, 33, 39);
+        background-color: rgba(14, 18, 27, 0.61);
         border-top: solid;
         border-bottom: none;
         border-color: rgba(252, 252, 252, 0.411);

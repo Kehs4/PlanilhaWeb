@@ -1,4 +1,3 @@
-
         // Função para buscar os clientes
         async function getClientes() {
             try {
@@ -8,8 +7,8 @@
             
                 const tableBody = document.querySelector('#clientes-table tbody');
 
-                tableBody.innerHTML = ''; 
-        
+                tableBody.innerHTML = '';
+
                 data.forEach(cliente => {
                     const row = document.createElement('tr');
                     const rowID = row.setAttribute('id', cliente.cod_cliente);
