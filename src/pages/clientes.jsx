@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './clientes.css'
-import saveData from '../api/saveData.js'
-import deleteData from '../api/deleteData.js'
 import MenuVertis from '../menuvertis.js'
 import { Link } from 'react-router-dom'
+import saveDataClients from '../api/saveDataClients.js';
+import deleteDataClients from '../api/deleteDataClients.js';
+import validarCamposInvalidos from '../api/validarInputsFetch.js';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -15,6 +16,17 @@ function Clientes() {
   const cod_cliente = query.get('id'); // <- aqui você pega o id corretamente
 
   useEffect(() => {
+    
+    const ExemploForm = () => {
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        const erros = validarCamposInvalidos();
+        if (erros.length > 0) {
+          alert('Corrija os campos destacados antes de enviar.');
+          return;
+        }}}
+
     const fetchData = async () => {
       if (cod_cliente) {
         try {
@@ -34,6 +46,7 @@ function Clientes() {
           const getCodCliente = document.getElementById('client-code');
           const getTipCliente = document.getElementById('client-type');
           const getObsCliente = document.getElementById('client-observation');
+          const getAuditCliente = document.getElementById('client-audit')
 
           // Declarando as informações dentro dos inputs dos Dados dos Clientes.
           getNomeCliente.value = data.nome_cliente || null;
@@ -45,6 +58,7 @@ function Clientes() {
           getCodCliente.value = data.cod_cliente || null;
           getTipCliente.value = data.tipo_unidade || null;
           getObsCliente.value = data.observacao || null;
+          getAuditCliente.value = data.ind_auditoria || null;
 
           // Retornando todos os inputs das informações dos Dados de Acesso dos Clientes.
           const getAcessoTVCliente = document.getElementById('client-teamviewer');
@@ -111,14 +125,14 @@ function Clientes() {
           const getClientLOL = document.getElementById('client-lol');
           const getClientLOE = document.getElementById('client-loe');
           const getGeradorPDF = document.getElementById('client-generator-pdf');
+          const getFatEmail = document.getElementById('client-fat-email');
           const getPortalNovo = document.getElementById('client-portal-new');
           const getContigencia = document.getElementById('client-contigencia');
-          const getFatEmail = document.getElementById('client-fat-email');
           const getExamLdoOnline = document.getElementById('client-exames-ldonline');
           const getIBPTCliente = document.getElementById('client-ibpt');
           const getNFAPI = document.getElementById('client-nf-api');
           const getPublS3 = document.getElementById('client-publ-s3');
-          const getITFM = document.getElementById('client-itf-m')
+          const getITFM = document.getElementById('client-itf-m');
 
           // Declarando as informações dentro dos inputs das informações Financeiras dos Clientes.
           getBoletoCliente.value = data.ind_banco_boleto || null;
@@ -127,9 +141,9 @@ function Clientes() {
           getClientLOL.value = data.ind_lol || null;
           getClientLOE.value = data.ind_loe || null;
           getGeradorPDF.value = data.ind_gerador_pdf || null;
+          getFatEmail.value = data.ind_faturamento_email || null;
           getPortalNovo.value = data.ind_portal_novo || null;
           getContigencia.value = data.ind_contigencia || null;
-          getFatEmail.value = data.ind_faturamento_email || null;
           getExamLdoOnline.value = data.ind_solic_exam_portal || null;
           getIBPTCliente.value = data.ibt_calculo_correto || null;
           getNFAPI.value = data.ind_emite_nfs_api || null;
@@ -172,7 +186,7 @@ function Clientes() {
     fetchData();
   }, [cod_cliente]);
 
-
+  
 
   return (
     <>
@@ -199,13 +213,13 @@ function Clientes() {
 
           <div>
             <label htmlFor="client-name">Nome do Cliente <font color="red">*</font></label>
-            <input type="text" className='btns' id="client-name" placeholder="Nome do Cliente"></input>
+            <input type="text" className='btns' id="client-name" placeholder="Nome do Cliente" required></input>
 
             <label htmlFor="client-cod-unid">Código Unidade de Negócio<font color="red">*</font></label>
-            <input type="number" className='btns' id="client-cod-unid" placeholder="Código da Unidade de Negócio"></input>
+            <input type="number" className='btns' id="client-cod-unid" placeholder="Código da Unidade de Negócio" required></input>
 
             <label htmlFor="client-cod-unid-oper">Código Unid. Operacional <font color="red">*</font></label>
-            <input type="number" className='btns' id="client-cod-unid-oper" placeholder="Código da Unid. Operacional"></input>
+            <input type="number" className='btns' id="client-cod-unid-oper" placeholder="Código da Unid. Operacional" required></input>
           </div>
 
           <div>
@@ -357,10 +371,10 @@ function Clientes() {
 
           <div>
             <label htmlFor="client-lol">LOL</label>
-            <input type="text" className='btns' id="client-lol" placeholder="LOL Cliente"></input>
+            <input type="number" className='btns' id="client-lol" placeholder="LOL Cliente"></input>
 
             <label htmlFor="client-loe">LOE</label>
-            <input type="text" className='btns' id="client-loe" placeholder="LOE Cliente"></input>
+            <input type="number" className='btns' id="client-loe" placeholder="LOE Cliente"></input>
 
             <label htmlFor="client-generator-pdf">Gerador PDF</label>
             <input type="text" className='btns' id="client-generator-pdf" placeholder="Gerador PDF do Cliente"></input>
@@ -486,10 +500,10 @@ function Clientes() {
 
       </div>
       <div className="search-clients-buttons-info">
-        <button className="btn-update" id='btn-update' type="button">Alterar</button>
-        <button className="btn-save" id='btn-save' type="button" onClick={saveData}>Salvar</button>
-        <div className='btn-delete-box'>
-          <button className="btn-delete" id='btn-delete' type="button" onClick={deleteData}>
+        <button className="btn-update-clients" id='btn-update-clients' type="button">Alterar</button>
+        <button className="btn-save-clients" id='btn-save-clients' type="button" onClick={saveDataClients}>Salvar</button>
+        <div className='btn-delete-box-clients'>
+          <button className="btn-delete-clients" id='btn-delete-clients' type="button" onClick={deleteDataClients}>
             <div className='btn-delete-content'>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />

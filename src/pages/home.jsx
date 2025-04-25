@@ -3,13 +3,13 @@ import '../App.css'
 import getClientes from '../api/getclients.js'
 import getSearch from '../api/search.js'
 import switchModal from '../modal.js'
-import saveData from '../api/saveData.js'
+import saveData from '../api/saveDataModal.js'
 import $ from 'jquery'
 import DT from 'datatables.net-dt'
 import DataTable from 'datatables.net-dt'
 import insertData from '../api/insertData.js'
 import insertModal from '../api/insertmodal.js'
-import deleteData from '../api/deleteData.js'
+import deleteData from '../api/deleteDataModal.js'
 import { Link } from 'react-router-dom'
 import infoClientes from '../infoclientes.js'
 import atualizarVisibilidadeColunas from '../api/escondertable.js'
@@ -125,13 +125,16 @@ function Home() {
                   <input type="text" className='btns' id="client-ip-server" placeholder="IP" disabled></input>
 
                   <label htmlFor="client-alternative">Acesso Alternativo Servidor</label>
-                  <input type="text" className='btns' id="client-alternative" placeholder="AnyDesk do cliente" disabled></input>
+                  <input type="text" className='btns' id="client-alternative" placeholder="Acessos Alternativos do Servidor" disabled></input>
 
                   <label htmlFor="client-user">Usuário do Servidor</label>
                   <input type="text" className='btns' id="client-user" placeholder="Usuário do Servidor do Cliente" disabled></input>
                 
                   <label htmlFor="client-user-password">Senha do Usuário</label>
                   <input type="text" className='btns' id="client-user-password" placeholder="Senha do Usuário do Cliente" disabled></input>
+                
+                  <label htmlFor="client-bd-password">Senha Criptografada BD</label>
+                  <input type="text" className='btns' id="client-bd-password" placeholder="Senha Criptografada BD" disabled></input>
                 </fieldset>
                   
                 <fieldset className='client-contacts'>
@@ -143,7 +146,7 @@ function Home() {
                   <input type="text" className='btns' id="client-email" placeholder='E-mail do Cliente' disabled></input>
                   
                   <label htmlFor="client-ddd">DDD</label>
-                  <input type="text" className='btns' id="client-ddd" placeholder='DDD do Cliente' disabled></input>
+                  <input type="number" className='btns' id="client-ddd" placeholder='DDD do Cliente' disabled></input>
 
                   <label htmlFor="client-contact-1">Telefone 1</label>
                   <input type="text" className='btns' id="client-contact-1" placeholder='Telefone 1' disabled></input>

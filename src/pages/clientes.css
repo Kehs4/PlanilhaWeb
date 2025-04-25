@@ -172,12 +172,13 @@ body::selection {
 
 .search-clients-buttons-info {
     display: flex;
+    
     position: fixed;
     padding: 12px;
     z-index: 3;
     width: 100%;
     bottom: 0;
-    background-color: rgb(8, 9, 12);
+    background-color: rgba(3, 16, 36, 0.541);
     justify-content: end;
     align-items: center;
     gap: 10px;
@@ -221,7 +222,8 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.btn-update {
+.btn-update-clients {
+    min-width: 100px;
     height: 30px;
     font-size: 15px;
     background-color: rgba(32, 40, 51, 0.808);
@@ -240,8 +242,8 @@ input::-webkit-inner-spin-button {
 }
 
 
-.btn-save {
-    display: block;
+.btn-save-clients {
+    min-width: 100px;
     height: 30px;
     font-size: 15px;
     background-color: rgba(32, 40, 51, 0.808);
@@ -252,19 +254,23 @@ input::-webkit-inner-spin-button {
     font-weight: 200;
 }
 
-.btn-save:hover {
+.btn-save-clients:hover {
     scale: 1.013;
     transition: 0.4s;
     border-color: rgba(32, 40, 51, 0.808);
     background-color: rgba(235, 102, 24, 1);
 }
 
-.btn-delete-box {
+.btn-delete-box-clients {
     display: flex;
+    margin-right: 15px;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-delete {
+.btn-delete-clients {
     display: flex;
+    min-width: 100px;
     align-items: center;
     margin: auto;
     height: 30px;
@@ -283,11 +289,16 @@ input::-webkit-inner-spin-button {
     padding: 5px;
 }
 
-.btn-delete-box p {
-    padding: 5px;
+.btn-delete-box-clients p {
+    margin-right: 15px;
 }
 
-.btn-delete:hover {
+.input-erro {
+    border: 2px solid red !important;
+    background-color: #ffeaea;
+  }
+
+.btn-delete-clients:hover {
     border-color: rgba(255, 255, 255, 0.808);
     scale: 1.013;
     transition: 0.4s;

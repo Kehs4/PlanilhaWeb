@@ -38,6 +38,7 @@
         const getAlternativeAccess = document.getElementById('client-alternative');
         const getUserServer = document.getElementById('client-user');
         const getUserPasswordServer = document.getElementById('client-user-password');
+        const getPasswordCriptog = document.getElementById('client-bd-password');
 
             // Declarando as informações dentro dos inputs dos Dados de Acesso dos Clientes.
             getAcessoTVCliente.value = data[client].acesso_cliente_teamviewer || null;
@@ -48,7 +49,8 @@
             getAlternativeAccess.value = data[client].alternativo || null;
             getUserServer.value = data[client].usuario_acesso_cliente || null;
             getUserPasswordServer.value = data[client].senha_acesso_usuario || null;
-        
+            getPasswordCriptog.value = data[client].senha_criptografada || null;
+            
             // Retornando todos os inputs das informações dos Dados dos Contatos dos Clientes.
         const getRespCliente = document.getElementById('client-manager');
         const getEmailCliente = document.getElementById('client-email');

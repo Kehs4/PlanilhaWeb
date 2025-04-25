@@ -104,7 +104,7 @@ body::selection {
     display: flex;
     width: 1050px;
     height: auto;
-    margin-top: 90px;
+    margin-top: 50px;
     flex-direction: column;
     align-items: center;
     border: 1px rgb(255, 255, 255) solid;
@@ -697,7 +697,7 @@ tr:hover {
     .form-clients {
         width: auto;
         height: auto;
-        margin-top: 80px;
+        margin-top: 38px;
     }
 
     .btn-info-client {
@@ -790,7 +790,7 @@ tr:hover {
 
     .form-clients {
         width: auto;
-        margin-top: 70px;
+        margin-top: 40px;
     }
 
     #client-modal {
