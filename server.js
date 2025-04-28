@@ -18,39 +18,11 @@ const pool = new Pool({
   database: 'gpi_financ_paula',
   port: 5432,
   password: 'boeing',
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
 });
 
 pool.connect();
 
 module.exports = pool;
-
-async function getData() {
-  const client = await pool.connect();
-  try {
-    const { rows } = await client.query('SELECT * FROM posts');
-    return rows;
-  } finally {
-    client.release();
-  }
-}
-
-export default async function Page() {
-  const data = await getData();
-  return (
-    <div>
-      {data.map((post, index) => (
-        <div key={index}>
-          <h2>{post.title}</h2>
-          <p>{post.content}</p>
-        </div>
-      ))}
-    </div>
-  );
-};
 
 app.use(express.json());
 
