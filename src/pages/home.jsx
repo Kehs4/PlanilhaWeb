@@ -65,7 +65,7 @@ function Home() {
         <header>
           <nav>
               <div className="nav-title">
-              <Link to='/gpi' target='blank'><img src="/public/vertisheader.png" width={105} height={35}></img></Link>
+              <Link to='/gpi' target='blank'><img src="vertisheader.png" width={105} height={35}></img></Link>
                   <h1 className="gpi-title">GPI - Planilha de Clientes</h1>
               </div>
           </nav>
@@ -197,7 +197,7 @@ function Home() {
             </div>
         </div>
       </div>
-    <img className='vertisimg' src='/public/vertislogo2.png'></img>
+    <img className='vertisimg' src='vertislogo2.png'></img>
 
       <table id="clientes-table">
         <thead>
@@ -221,7 +221,7 @@ function Home() {
       <footer className='footer-vertis'>
         <div className='div-all-footer'>
                 <div className='footer-logo'>
-                  <a href="https://vertisvet.com.br" target='_blank'><img src='/public/vertislogo.png' width={150} height={100}></img></a>
+                  <a href="https://vertisvet.com.br" target='_blank'><img src='vertislogo.png' width={150} height={100}></img></a>
                   <p>© 2025 por Vertis.</p>
                 </div>
 
