@@ -234,7 +234,7 @@ input::-webkit-inner-spin-button {
     font-weight: 200;
 }
 
-.btn-update:hover {
+.btn-update-clients:hover {
     scale: 1.013;
     transition: 0.4s;
     border-color: rgba(32, 40, 51, 0.808);
@@ -394,4 +394,79 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
     font-size: 16px;
     font-weight: 200;
+}
+
+.responsive-div {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 1600px) {
+    .client-access-info {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1350px) {
+    
+    .search-clients-info {
+        width: auto;
+    }
+
+    .client-access-info {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .responsive-div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .div-client-contacts-maintenance {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1024px) {
+    .responsive-div {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgb(75, 87, 121);
+        padding: 15px;
+        border-radius: 15px;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .client-access-info {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 680px) {
+    .gpi-title {
+        font-size: 20px;
+    }
+
+    .search-clients-info fieldset {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .search-clients-buttons-info button, .btn-update-clients, .btn-delete-clients, .btn-save-clients{
+        font-size: 13px;
+        height: 30px;
+    }
 }

@@ -78,6 +78,7 @@ async function saveDataClients(req, res){
         const alertParagraph = document.getElementById('alert-textp')
         const alertStatus = document.getElementById('alert-status')
         const alertClose = document.getElementById('btn-confirm-alert')
+        const inputs = document.querySelectorAll('.btns')
 
         
 
@@ -99,6 +100,9 @@ async function saveDataClients(req, res){
                 alertParagraph.innerHTML = ('Cliente ' + nome_cliente + ' atualizado com sucesso!');
                 alertClose.addEventListener('click', function() {
                     showAlert.style.display = 'none';
+                    inputs.forEach(input => {
+                        input.disabled = true
+                    });
                 })
             } else {
                 const error = await response.text();

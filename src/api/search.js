@@ -15,6 +15,8 @@
         
         // Retornando todos os inputs das informações dos Dados dos Clientes.
         const getNomeCliente = document.getElementById('client-name-input');
+        const getCodUnid = document.getElementById('client-cod-unid')
+        const getCodUnidOper = document.getElementById('client-cod-unid-oper');
         const getCodCliente = document.getElementById('client-cod');
         const getVersCliente = document.getElementById('client-version');
         const getMainCliente = document.getElementById('client-maintenance');
@@ -23,6 +25,8 @@
         
             // Declarando as informações dentro dos inputs dos Dados dos Clientes.
             getNomeCliente.value = data[client].nome_cliente || null;
+            getCodUnid.value = data[client].cod_unid_neg || null;
+            getCodUnidOper.value = data[client].cod_unid_oper || null;
             getCodCliente.value = data[client].cod_cliente || null;
             getVersCliente.value = data[client].versao_vertis_cliente || null;
             getMainCliente.value = data[client].dth_manutencao_realizada || null;
@@ -57,6 +61,7 @@
         const getDDDCliente = document.getElementById('client-ddd');
         const getContact1Cliente = document.getElementById('client-contact-1');
         const getContact2Cliente = document.getElementById('client-contact-2');
+        const getObsCliente = document.getElementById('client-observation');
 
             // Declarando as informações dentro dos inputs dos Dados dos Contatos dos Clientes.
             getRespCliente.value = data[client].contatos || null;
@@ -64,6 +69,7 @@
             getDDDCliente.value = data[client].ddd_telefone || null;
             getContact1Cliente.value = data[client].telefone1 || null;
             getContact2Cliente.value = data[client].telefone2 || null;
+            getObsCliente.value = data[client].observacao || null;
     
     } catch (error) {
         console.error('Erro ao buscar dados do cliente:', error);

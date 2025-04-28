@@ -89,9 +89,15 @@ function Home() {
                 <fieldset className='client-data'>
                 <legend>Dados do Cliente</legend>
                   <label htmlFor="client-name">Nome do Cliente <font color="red">*</font></label>
-                  <input type="text" className='btns' id="client-name-input" placeholder="Nome do Cliente" disabled></input>
+                  <input type="text" className='btns' id="client-name-input" placeholder="Nome do Cliente" required disabled></input>
+
+                  <label htmlFor="client-cod-unid">Código Unidade de Negócio<font color="red">*</font></label>
+            <input type="number" className='btns' id="client-cod-unid" placeholder="Código da Unidade de Negócio" required disabled></input>
+
+            <label htmlFor="client-cod-unid-oper">Código Unid. Operacional <font color="red">*</font></label>
+            <input type="number" className='btns' id="client-cod-unid-oper" placeholder="Código da Unid. Operacional" required disabled></input>
                     
-                  <label htmlFor="client-cod">Código do Cliente <font color="red">*</font></label>
+                  <label htmlFor="client-cod">Cód. Planilha GPI</label>
                   <input type="number" className='btns' id="client-cod" placeholder="Código do Cliente" disabled></input>
 
                   <label htmlFor="client-version">Versão do Vertis</label>
@@ -153,6 +159,9 @@ function Home() {
 
                   <label htmlFor="client-contact-2">Telefone 2</label>
                   <input type="text" className='btns' id="client-contact-2" placeholder='Telefone 2' disabled></input>
+                
+                  <label htmlFor="client-observation">Observação</label>
+                  <input type="text" className='btns' id="client-observation" placeholder="Observações Gerais do Cliente" disabled></input>
                 </fieldset>
                   
               </div>

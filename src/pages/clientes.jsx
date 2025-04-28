@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import saveDataClients from '../api/saveDataClients.js';
 import deleteDataClients from '../api/deleteDataClients.js';
 import validarCamposInvalidos from '../api/validarInputsFetch.js';
+import ChangeInputs from '../api/inputUpdateClients.js';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -176,6 +177,8 @@ function Clientes() {
           getSenhaSmartVertis.value = data.senha_smartvertis || null;
           getQRCode.value = data.ind_qrcode || null;
 
+          const data1 = await ChangeInputs()
+
         } catch (error) {
           console.error(error);
         }
@@ -210,95 +213,105 @@ function Clientes() {
       <div className="search-clients-info">
         <fieldset className='client-data-info'>
           <legend>Dados do Cliente</legend>
-
+          
+          <div className='responsive-div'> 
           <div>
             <label htmlFor="client-name">Nome do Cliente <font color="red">*</font></label>
-            <input type="text" className='btns' id="client-name" placeholder="Nome do Cliente" required></input>
+            <input type="text" className='btns' id="client-name" placeholder="Nome do Cliente" required disabled></input>
 
             <label htmlFor="client-cod-unid">Código Unidade de Negócio<font color="red">*</font></label>
-            <input type="number" className='btns' id="client-cod-unid" placeholder="Código da Unidade de Negócio" required></input>
+            <input type="number" className='btns' id="client-cod-unid" placeholder="Código da Unidade de Negócio" required disabled></input>
 
             <label htmlFor="client-cod-unid-oper">Código Unid. Operacional <font color="red">*</font></label>
-            <input type="number" className='btns' id="client-cod-unid-oper" placeholder="Código da Unid. Operacional" required></input>
+            <input type="number" className='btns' id="client-cod-unid-oper" placeholder="Código da Unid. Operacional" required disabled></input>
           </div>
-
+          
           <div>
             <label htmlFor="client-version">Versão do Vertis</label>
-            <input type="text" className='btns' id="client-version" placeholder="Versão do Vertis"></input>
+            <input type="text" className='btns' id="client-version" placeholder="Versão do Vertis" disabled></input>
 
             <label htmlFor="client-update">Atualização do Vertis</label>
-            <input type="text" className='btns' id="client-update" placeholder="Data da Atualização do Sistema"></input>
+            <input type="text" className='btns' id="client-update" placeholder="Data da Atualização do Sistema" disabled></input>
 
             <label htmlFor="client-update-sql">Script SQL</label>
-            <input type="text" className='btns' id="client-update-sql" placeholder="SQL's Scripts rodados"></input>
+            <input type="text" className='btns' id="client-update-sql" placeholder="SQL's Scripts rodados" disabled></input>
+          </div>
           </div>
 
+          <div className='responsive-div'>
           <div>
             <label htmlFor="client-code">Cód. Planilha GPI</label>
             <input type="number" className='btns' id="client-code" placeholder="Código do Cliente" disabled></input>
 
             <label htmlFor="client-type">Tipo da Unidade</label>
-            <input type="text" className='btns' id="client-type" placeholder="Tipo da Unidade do Cliente"></input>
+            <input type="text" className='btns' id="client-type" placeholder="Tipo da Unidade do Cliente" disabled></input>
 
             <label htmlFor="client-observation">Observação</label>
-            <input type="text" className='btns' id="client-observation" placeholder="Observações Gerais do Cliente"></input>
+            <input type="text" className='btns' id="client-observation" placeholder="Observações Gerais do Cliente" disabled></input>
           </div>
 
           <div>
             <label htmlFor="client-audit"> Auditoria Table BD</label>
-            <input type="text" className='btns' id="client-audit" placeholder="Tabela com Auditoria do Cliente"></input>
+            <input type="text" className='btns' id="client-audit" placeholder="Tabela com Auditoria do Cliente" disabled></input>
+          </div>
           </div>
         </fieldset>
 
         <fieldset className='client-access-info'>
           <legend>Dados de Acesso</legend>
 
+          <div className='responsive-div'>
           <div>
             <label htmlFor="client-teamviewer">TeamViewer</label>
-            <input type="text" className='btns' id="client-teamviewer" placeholder="TeamViewer do cliente"></input>
+            <input type="text" className='btns' id="client-teamviewer" placeholder="TeamViewer do cliente" disabled></input>
 
             <label htmlFor="client-teamviewer-password">Senha TeamViewer</label>
-            <input type="text" className='btns' id="client-teamviewer-password" placeholder="Senha do TeamViewer"></input>
+            <input type="text" className='btns' id="client-teamviewer-password" placeholder="Senha do TeamViewer" disabled></input>
           </div>
 
           <div>
             <label htmlFor="client-anydesk">AnyDesk</label>
-            <input type="text" className='btns' id="client-anydesk" placeholder="AnyDesk do cliente"></input>
+            <input type="text" className='btns' id="client-anydesk" placeholder="AnyDesk do cliente" disabled></input>
 
             <label htmlFor="client-anydesk-password">Senha AnyDesk</label>
-            <input type="text" className='btns' id="client-anydesk-password" placeholder="Senha do AnyDesk"></input>
+            <input type="text" className='btns' id="client-anydesk-password" placeholder="Senha do AnyDesk" disabled></input>
+          </div>
           </div>
 
+          <div className='responsive-div'>
           <div>
             <label htmlFor="client-user">Usuário do Servidor</label>
-            <input type="text" className='btns' id="client-user" placeholder="Senha do AnyDesk"></input>
+            <input type="text" className='btns' id="client-user" placeholder="Senha do AnyDesk" disabled></input>
 
             <label htmlFor="client-user-password">Senha do Usuário</label>
-            <input type="text" className='btns' id="client-user-password" placeholder="Senha do AnyDesk"></input>
+            <input type="text" className='btns' id="client-user-password" placeholder="Senha do AnyDesk" disabled></input>
           </div>
 
           <div>
             <label htmlFor="client-alternative-info">Acesso Alternativo Servidor</label>
-            <input type="text" className='btns' id="client-alternative-info" placeholder="Acessos Alternativos do Servidor"></input>
+            <input type="text" className='btns' id="client-alternative-info" placeholder="Acessos Alternativos do Servidor" disabled></input>
 
             <label htmlFor="client-licences">IP Servidor do Cliente</label>
-            <input type="text" className='btns' id="client-ip-server" placeholder="IP"></input>
+            <input type="text" className='btns' id="client-ip-server" placeholder="IP" disabled></input>
+          </div>
           </div>
 
+          <div className='responsive-div'>
           <div>
             <label htmlFor="client-bd-password">Senha Criptografada BD</label>
-            <input type="text" className='btns' id="client-bd-password" placeholder="Senha Criptografada BD"></input>
+            <input type="text" className='btns' id="client-bd-password" placeholder="Senha Criptografada BD" disabled></input>
 
             <label htmlFor="client-bd-port">Porta do Banco de Dados</label>
-            <input type="text" className='btns' id="client-bd-port" placeholder="Porta do Banco de Dados"></input>
+            <input type="text" className='btns' id="client-bd-port" placeholder="Porta do Banco de Dados" disabled></input>
           </div>
 
           <div>
             <label htmlFor="client-so-server">Sistema Operacional do Servidor</label>
-            <input type="text" className='btns' id="client-so-server" placeholder="Sistema Operacional do Servidor"></input>
+            <input type="text" className='btns' id="client-so-server" placeholder="Sistema Operacional do Servidor" disabled></input>
 
             <label htmlFor="client-postgres">Versão do PostgreSQL</label>
-            <input type="text" className='btns' id="client-postgres" placeholder="Versão do PostgreSQL"></input>
+            <input type="text" className='btns' id="client-postgres" placeholder="Versão do PostgreSQL" disabled></input>
+          </div>
           </div>
         </fieldset>
 
@@ -308,23 +321,23 @@ function Clientes() {
 
             <div>
               <label htmlFor="client-manager">Responsável Unidade</label>
-              <input type="text" className='btns' id="client-manager" placeholder='Responsável pela unid.'></input>
+              <input type="text" className='btns' id="client-manager" placeholder='Responsável pela unid.' disabled></input>
 
               <label htmlFor="client-email">E-mail</label>
-              <input type="text" className='btns' id="client-email" placeholder='E-mail do Cliente'></input>
+              <input type="text" className='btns' id="client-email" placeholder='E-mail do Cliente' disabled></input>
             </div>
 
             <div>
               <label htmlFor="client-ddd">DDD</label>
-              <input type="text" className='btns' id="client-ddd" placeholder='DDD do Cliente'></input>
+              <input type="text" className='btns' id="client-ddd" placeholder='DDD do Cliente' disabled></input>
             </div>
 
             <div>
               <label htmlFor="client-contact-1">Telefone 1</label>
-              <input type="text" className='btns' id="client-contact-1" placeholder='Telefone 1'></input>
+              <input type="text" className='btns' id="client-contact-1" placeholder='Telefone 1' disabled></input>
 
               <label htmlFor="client-contact-2">Telefone 2</label>
-              <input type="text" className='btns' id="client-contact-2" placeholder='Telefone 2'></input>
+              <input type="text" className='btns' id="client-contact-2" placeholder='Telefone 2' disabled></input>
             </div>
           </fieldset>
 
@@ -333,24 +346,24 @@ function Clientes() {
 
             <div>
               <label htmlFor="client-licences">Licenças da Unidade</label>
-              <input type="text" className='btns' id="client-licences" placeholder="Total de Licenças"></input>
+              <input type="text" className='btns' id="client-licences" placeholder="Total de Licenças" disabled></input>
 
               <label htmlFor="client-maintenance">Manutenção Realizada</label>
-              <input type="text" className='btns' id="client-maintenance" placeholder="Manutenção do Vertis"></input>
+              <input type="text" className='btns' id="client-maintenance" placeholder="Manutenção do Vertis" disabled></input>
 
               <label htmlFor="client-maintenance-future">Manutenção Futura</label>
-              <input type="text" className='btns' id="client-maintenance-future" placeholder="Próxima Manutenção"></input>
+              <input type="text" className='btns' id="client-maintenance-future" placeholder="Próxima Manutenção" disabled></input>
             </div>
 
             <div>
               <label htmlFor="client-maintenance-alert">Solicita acesso?</label>
-              <input type="text" className='btns' id="client-maintenance-alert" placeholder="Aviso do Cliente para Acesso"></input>
+              <input type="text" className='btns' id="client-maintenance-alert" placeholder="Aviso do Cliente para Acesso" disabled></input>
 
               <label htmlFor="client-maintenance-data">Armazenamento do Cliente</label>
-              <input type="text" className='btns' id="client-maintenance-data" placeholder="Espaço de Armazenamento do Cliente"></input>
+              <input type="text" className='btns' id="client-maintenance-data" placeholder="Espaço de Armazenamento do Cliente" disabled></input>
 
               <label htmlFor="client-maintenance-antivirus">Antivírus do Cliente</label>
-              <input type="text" className='btns' id="client-maintenance-antivirus" placeholder="Antivírus do Cliente"></input>
+              <input type="text" className='btns' id="client-maintenance-antivirus" placeholder="Antivírus do Cliente" disabled></input>
             </div>
           </fieldset>
         </div>
@@ -358,51 +371,54 @@ function Clientes() {
         <fieldset className='client-finance-info'>
           <legend>Financeiro</legend>
 
+          <div className='responsive-div'>
           <div>
             <label htmlFor="client-boletos">Boleto</label>
-            <input type="text" className='btns' id="client-boleto" placeholder="Banco do Boleto do Cliente"></input>
+            <input type="text" className='btns' id="client-boleto" placeholder="Banco do Boleto do Cliente" disabled></input>
 
             <label htmlFor="client-municipio">Município do Cliente</label>
-            <input type="text" className='btns' id="client-municipio" placeholder="Município da NF Cliente"></input>
+            <input type="text" className='btns' id="client-municipio" placeholder="Município da NF Cliente" disabled></input>
 
             <label htmlFor="client-sat">SAT</label>
-            <input type="text" className='btns' id="client-sat" placeholder="SAT Utilizado pelo Cliente"></input>
+            <input type="text" className='btns' id="client-sat" placeholder="SAT Utilizado pelo Cliente" disabled></input>
           </div>
 
           <div>
             <label htmlFor="client-lol">LOL</label>
-            <input type="number" className='btns' id="client-lol" placeholder="LOL Cliente"></input>
+            <input type="number" className='btns' id="client-lol" placeholder="LOL Cliente" disabled></input>
 
             <label htmlFor="client-loe">LOE</label>
-            <input type="number" className='btns' id="client-loe" placeholder="LOE Cliente"></input>
+            <input type="number" className='btns' id="client-loe" placeholder="LOE Cliente" disabled></input>
 
             <label htmlFor="client-generator-pdf">Gerador PDF</label>
-            <input type="text" className='btns' id="client-generator-pdf" placeholder="Gerador PDF do Cliente"></input>
+            <input type="text" className='btns' id="client-generator-pdf" placeholder="Gerador PDF do Cliente" disabled></input>
           </div>
 
           <div>
             <label htmlFor="client-fat-email">Faturamento Email</label>
-            <input type="text" className='btns' id="client-fat-email" placeholder="Faturamento Email?"></input>
+            <input type="text" className='btns' id="client-fat-email" placeholder="Faturamento Email?" disabled></input>
+          </div>
           </div>
 
+          <div className='responsive-div'>
           <div>
             <div className='selects-option'>
               <label htmlFor="client-portal-new" className='label-select'>Portal Novo?</label>
-              <select className='btns' name="Portal Cliente" id="client-portal-new">
+              <select className='btns' name="Portal Cliente" id="client-portal-new" disabled>
                 <option value=""></option>
                 <option value="S">Sim</option>
                 <option value="N">Não</option>
               </select>
 
               <label htmlFor="client-contigencia" className='label-select'>Contigência?</label>
-              <select className='btns' name="Contigencia" id="client-contigencia">
+              <select className='btns' name="Contigencia" id="client-contigencia" disabled>
                 <option value=""></option>
                 <option value="S">Sim</option>
                 <option value="N">Não</option>
               </select>
 
               <label htmlFor="client-exames-ldonline">Solicita Exame Portal?</label>
-              <select className='btns' name="Exames Laudos Online" id="client-exames-ldonline">
+              <select className='btns' name="Exames Laudos Online" id="client-exames-ldonline" disabled>
                 <option value=""></option>
                 <option value="S">Sim</option>
                 <option value="N">Não</option>
@@ -414,21 +430,21 @@ function Clientes() {
             <div className='selects-option'>
 
               <label htmlFor="client-ibpt">IBPT Cálculo Correto?</label>
-              <select className='btns' name="IBPT Calculo Correto" id="client-ibpt">
+              <select className='btns' name="IBPT Calculo Correto" id="client-ibpt" disabled>
                 <option value=""></option>
                 <option value="X">Sim</option>
                 <option value="N">Não</option>
               </select>
 
               <label htmlFor="client-nf-api">Emite NF via API?</label>
-              <select className='btns' name="Emite NF via API" id="client-nf-api">
+              <select className='btns' name="Emite NF via API" id="client-nf-api" disabled>
                 <option value=""></option>
                 <option value="X">Sim</option>
                 <option value="N">Não</option>
               </select>
 
               <label htmlFor="client-publ-s3">Publica S3?</label>
-              <select className='btns' name="Publica S3" id="client-publ-s3">
+              <select className='btns' name="Publica S3" id="client-publ-s3" disabled>
                 <option value=""></option>
                 <option value="X">Sim</option>
                 <option value="N">Não</option>
@@ -438,64 +454,68 @@ function Clientes() {
 
           <div className='selects-option'>
             <label htmlFor="client-itf-m">ITF M?</label>
-            <select className='btns' name="ITF M" id="client-itf-m">
+            <select className='btns' name="ITF M" id="client-itf-m" disabled>
               <option value=""></option>
               <option value="S">Sim</option>
               <option value="N">Não</option>
             </select>
           </div>
+          </div>
         </fieldset>
 
         <fieldset className='client-backups-info'>
           <legend>Backups</legend>
-
+          <div className='responsive-div'>
           <div>
             <label htmlFor="client-path-backup">Diretório/Caminho Backup</label>
-            <input type="text" className='btns' id="client-path-backup" placeholder="Caminho do /Backup Servidor"></input>
+            <input type="text" className='btns' id="client-path-backup" placeholder="Caminho do /Backup Servidor" disabled></input>
 
             <label htmlFor="client-email-backup">Email Conta de Backup</label>
-            <input type="email" className='btns' id="client-email-backup" placeholder="E-mail da Conta de Backup"></input>
+            <input type="email" className='btns' id="client-email-backup" placeholder="E-mail da Conta de Backup" disabled></input>
 
             <label htmlFor="client-password-backup">Senha Conta de Backup </label>
-            <input type="text" className='btns' id="client-password-backup" placeholder="Senha da Conta de Backup"></input>
+            <input type="text" className='btns' id="client-password-backup" placeholder="Senha da Conta de Backup" disabled></input>
           </div>
 
           <div>
             <label htmlFor="client-type-backup">Tipo de Backup Nuvem</label>
-            <input type="text" className='btns' id="client-type-backup" placeholder="Tipo do Backup da Nuvem"></input>
+            <input type="text" className='btns' id="client-type-backup" placeholder="Tipo do Backup da Nuvem" disabled></input>
 
             <label htmlFor="client-pin-google">PIN do Google Desktop</label>
-            <input type="text" className='btns' id="client-pin-google" placeholder="PIN do Google Desktop"></input>
+            <input type="text" className='btns' id="client-pin-google" placeholder="PIN do Google Desktop" disabled></input>
 
             <label htmlFor="client-size-backup">Tamanho do Backup</label>
-            <input type="text" className='btns' id="client-size-backup" placeholder="Tamanho do Backup da Conta Nuvem"></input>
+            <input type="text" className='btns' id="client-size-backup" placeholder="Tamanho do Backup da Conta Nuvem" disabled></input>
+          </div>
           </div>
 
+          <div className='responsive-div'>
           <div>
             <label htmlFor="client-time-backup">Horário dos Backups</label>
-            <input type="text" className='btns' id="client-time-backup" placeholder="Horários dos Backups do Cliente"></input>
+            <input type="text" className='btns' id="client-time-backup" placeholder="Horários dos Backups do Cliente" disabled></input>
 
             <label htmlFor="client-time-vaccum">Horários do Vaccum BD</label>
-            <input type="text" className='btns' id="client-time-vaccum" placeholder="Horários do Vaccum do Cliente"></input>
+            <input type="text" className='btns' id="client-time-vaccum" placeholder="Horários do Vaccum do Cliente" disabled></input>
 
             <label htmlFor="client-time-reindex">Horários ReIndex</label>
-            <input type="text" className='btns' id="client-time-reindex" placeholder="Horários do ReIndex do Cliente"></input>
+            <input type="text" className='btns' id="client-time-reindex" placeholder="Horários do ReIndex do Cliente" disabled></input>
           </div>
 
           <div>
             <label htmlFor="client-pw-smartvertis">Senha do Smart Vertis</label>
-            <input type="text" className='btns' id="client-pw-smartvertis" placeholder="Senha do Smart Vertis do Cliente"></input>
+            <input type="text" className='btns' id="client-pw-smartvertis" placeholder="Senha do Smart Vertis do Cliente" disabled></input>
           </div>
+          
 
           <div className='selects-option'>
             <label htmlFor="client-qrcode">QR Code</label>
-            <select className='btns' name="QR Code" id="client-qrcode">
+            <select className='btns' name="QR Code" id="client-qrcode" disabled>
               <option value=""></option>
               <option value="Sim">Sim</option>
               <option value="Não">Não</option>
             </select>
           </div>
-
+          </div>
         </fieldset>
 
       </div>
