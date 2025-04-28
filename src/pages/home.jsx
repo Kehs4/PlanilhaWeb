@@ -65,7 +65,7 @@ function Home() {
         <header>
           <nav>
               <div className="nav-title">
-              <Link to='/gpi' target='blank'><img src="./vertisheader.png" width={105} height={35}></img></Link>
+              <Link to='/gpi' target='blank'><img src="/public/vertisheader.png" width={105} height={35}></img></Link>
                   <h1 className="gpi-title">GPI - Planilha de Clientes</h1>
               </div>
           </nav>
@@ -92,10 +92,10 @@ function Home() {
                   <input type="text" className='btns' id="client-name-input" placeholder="Nome do Cliente" required disabled></input>
 
                   <label htmlFor="client-cod-unid">Código Unidade de Negócio<font color="red">*</font></label>
-            <input type="number" className='btns' id="client-cod-unid" placeholder="Código da Unidade de Negócio" required disabled></input>
+                  <input type="number" className='btns' id="client-cod-unid" placeholder="Código da Unidade de Negócio" required disabled></input>
 
-            <label htmlFor="client-cod-unid-oper">Código Unid. Operacional <font color="red">*</font></label>
-            <input type="number" className='btns' id="client-cod-unid-oper" placeholder="Código da Unid. Operacional" required disabled></input>
+                  <label htmlFor="client-cod-unid-oper">Código Unid. Operacional <font color="red">*</font></label>
+                  <input type="number" className='btns' id="client-cod-unid-oper" placeholder="Código da Unid. Operacional" required disabled></input>
                     
                   <label htmlFor="client-cod">Cód. Planilha GPI</label>
                   <input type="number" className='btns' id="client-cod" placeholder="Código do Cliente" disabled></input>
@@ -221,7 +221,7 @@ function Home() {
       <footer className='footer-vertis'>
         <div className='div-all-footer'>
                 <div className='footer-logo'>
-                  <a href="https://vertisvet.com.br" target='_blank'><img src='./public/vertislogo.png' width={150} height={100}></img></a>
+                  <a href="https://vertisvet.com.br" target='_blank'><img src='/public/vertislogo.png' width={150} height={100}></img></a>
                   <p>© 2025 por Vertis.</p>
                 </div>
 
