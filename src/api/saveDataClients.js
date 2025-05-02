@@ -81,8 +81,11 @@ async function saveDataClients(req, res){
         const inputs = document.querySelectorAll('.btns')
 
         
-
-        const response = await fetch(`http://localhost:3000/clientes/id=${cod_cliente}`, {
+        const proxy = 'https://cors-anywhere.herokuapp.com/';
+        const url = 'http://177.11.209.38/vertis/VertisConnect.dll/api/V1.1/vertis/clientesfat';
+        const fullUrl = proxy + url;
+        
+        const response = await fetch(fullUrl, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

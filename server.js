@@ -1,23 +1,23 @@
 const express = require('express');
 const { Pool } = require('pg');
 const app = express();
-const port = 3000;
+const port = 9000;
 const cors = require("cors");
-const corsOptions ={
-   origin:'*', 
-   credentials:true,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
+const corsOptions = {
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Access-Control-Allow-Headers'],
+  credentials: true //access-control-allow-credentials:true
 }
 
 app.use(cors(corsOptions)) // Use this after the variable declaration
 
-
 const pool = new Pool({
-  user: 'postgres',
-  host: '192.168.200.2',
-  database: 'gpi_financ_paula',
-  port: 5432,
-  password: 'boeing',
+  user: 'api_connect',
+  host: '177.11.209.103',
+  database: 'vertis_arkano_170225',
+  port: 7543,
+  password: 'Gripen39NG',
 });
 
 pool.connect();
@@ -30,7 +30,7 @@ app.use(express.json());
 app.get('/clientes', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM clientes ORDER BY cod_cliente');
-    res.json(result.rows);
+   res.json(result.rows);
   } catch (error) {
     console.error('Erro ao consultar clientes.', error);
     res.status(500).send('Erro 500: Erro no servidor.');
@@ -40,12 +40,11 @@ app.get('/clientes', async (req, res) => {
 //Endpoint do tipo PUT para dar UPDATE nos clientes, pelo código do cliente, clicando no botão de salvar do modal na home.jsx.
 app.put('/clientes', async (req, res) => {
   try {
-      const { nome_cliente, versao_vertis_cliente, dth_manutencao_realizada, dth_manutencao_futura, licencas_cliente, acesso_cliente_teamviewer, senha_acesso_cliente_teamviewer, acesso_cliente_anydesk, senha_acesso_cliente_anydesk, ip_servidor_cliente, alternativo, usuario_acesso_cliente, senha_acesso_usuario, senha_criptografada, contatos, email_cliente, ddd_telefone, telefone1, telefone2, cod_cliente } = req.body;
+      const { nome_cliente, versao_vertis_cliente, dth_manutencao_realizada, dth_manutencao_futura, licencas_cliente, acesso_cliente_teamviewer, senha_acesso_cliente_teamviewer, acesso_cliente_anydesk, senha_acesso_cliente_anydesk, ip_servidor_cliente, alternativo, usuario_acesso_cliente, senha_acesso_usuario, senha_criptografada, contatos, email_cliente, ddd_telefone, telefone1, telefone2, observacao, cod_cliente } = req.body;
 
       const result = await pool.query(
-          'UPDATE clientes SET nome_cliente = $1, versao_vertis_cliente = $2, dth_manutencao_realizada = $3, dth_manutencao_futura = $4, licencas_cliente = $5, acesso_cliente_teamviewer = $6, senha_acesso_cliente_teamviewer = $7, acesso_cliente_anydesk = $8, senha_acesso_cliente_anydesk = $9 , ip_servidor_cliente = $10, alternativo = $11, usuario_acesso_cliente = $12, senha_acesso_usuario = $13, senha_criptografada = $14, contatos = $15, email_cliente = $16, ddd_telefone = $17, telefone1 = $18, telefone2 = $19 WHERE cod_cliente = $20',
-          [nome_cliente, versao_vertis_cliente, dth_manutencao_realizada, dth_manutencao_futura, licencas_cliente, acesso_cliente_teamviewer, senha_acesso_cliente_teamviewer, acesso_cliente_anydesk, senha_acesso_cliente_anydesk, ip_servidor_cliente, alternativo, usuario_acesso_cliente, senha_acesso_usuario, senha_criptografada, contatos, email_cliente, ddd_telefone, telefone1, telefone2, cod_cliente]);
-      
+          'UPDATE clientes SET nome_cliente = $1, versao_vertis_cliente = $2, dth_manutencao_realizada = $3, dth_manutencao_futura = $4, licencas_cliente = $5, acesso_cliente_teamviewer = $6, senha_acesso_cliente_teamviewer = $7, acesso_cliente_anydesk = $8, senha_acesso_cliente_anydesk = $9 , ip_servidor_cliente = $10, alternativo = $11, usuario_acesso_cliente = $12, senha_acesso_usuario = $13, senha_criptografada = $14, contatos = $15, email_cliente = $16, ddd_telefone = $17, telefone1 = $18, telefone2 = $19, observacao = $20 WHERE cod_cliente = $21',
+          [nome_cliente, versao_vertis_cliente, dth_manutencao_realizada, dth_manutencao_futura, licencas_cliente, acesso_cliente_teamviewer, senha_acesso_cliente_teamviewer, acesso_cliente_anydesk, senha_acesso_cliente_anydesk, ip_servidor_cliente, alternativo, observacao, usuario_acesso_cliente, senha_acesso_usuario, senha_criptografada, contatos, email_cliente, ddd_telefone, telefone1, telefone2, observacao, cod_cliente]);
       res.status(200).send(result.rows[0]);
 
   } catch (error) {

@@ -11,24 +11,25 @@ async function deleteDataClients() {
     const modal = document.querySelector('.div-form-clients');
 
     const btnDelete = document.getElementById('btn-delete-clients')
-    btnDelete.addEventListener('click', async function(){
+    btnDelete.addEventListener('click', async function () {
         showAlert.style.display = 'flex';
-        alertTitle.innerHTML = 'Deseja realmente excluir esse cliente?!'
+        alertTitle.innerHTML = 'Deseja realmente excluir esse cliente?! <br> <br>'
         alertStatus.style.display = 'none'
-        alertParagraph.style.display = 'none'
+        alertParagraph.style.display = 'block'
+        alertParagraph.innerHTML = '<font color ="gray">Essa ação não pode ser desfeita!</font>'
         alertClose.style.display = 'none'
         btnYes.style.display = 'flex'
         btnNo.style.display = 'flex'
 
-        btnYes.addEventListener('click', async function() {
+        btnYes.addEventListener('click', async function () {
             const response = await fetch('', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({cod_cliente}),
+                body: JSON.stringify({ cod_cliente }),
             });
-            
+
             if (response.ok) {
                 const result = await response.text();
                 console.log(result);
@@ -42,7 +43,7 @@ async function deleteDataClients() {
                 alertStatus.style.color = 'green'
                 alertStatus.innerHTML = '<font color="gray">Status</font> <br>' + '(200) Ok!.';
                 alertParagraph.innerHTML = ('Cliente ' + nome_cliente + ' removido!');
-                alertClose.addEventListener('click', function() {
+                alertClose.addEventListener('click', function () {
                     showAlert.style.display = 'none';
                     modal.style.display = 'none';
                 })
@@ -56,18 +57,19 @@ async function deleteDataClients() {
                 alertTitle.innerHTML = 'Viishh...'
                 alertStatus.style.color = 'red'
                 alertStatus.innerHTML = ('<font color="gray">Status</font> <br>' + error);
-                alertParagraph.innerHTML = ('Não conseguimos remover o cliente ' + nome_cliente + ' para você. <br>' );
-                alertClose.addEventListener('click', function() {
+                alertParagraph.innerHTML = ('Não conseguimos remover o cliente ' + nome_cliente + ' para você. <br>');
+                btnYes.style.display = 'none'
+                btnNo.style.display = 'none'
+                alertClose.addEventListener('click', function () {
                     showAlert.style.display = 'none';
                 })
             }
         })
-    })
-    
-        btnNo.addEventListener('click', function(){
-            showAlert.style.display = 'none'
-
         })
+
+    btnNo.addEventListener('click', function () {
+        showAlert.style.display = 'none'
+    })
 };
 
 export default deleteDataClients;

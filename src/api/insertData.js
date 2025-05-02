@@ -1,4 +1,3 @@
-import getClientes from "./getclients";
 
 async function insertData() {
     const nome_cliente = document.getElementById('client-name-input').value;
@@ -28,8 +27,10 @@ async function insertData() {
     const alertClose = document.getElementById('btn-confirm-alert')
     const modal = document.querySelector('.div-form-clients');
 
-
-    const response = await fetch('http://localhost:3000/clientes', {
+    const proxy = 'https://cors-anywhere.herokuapp.com/';
+    const url = 'http://177.11.209.38/vertis/VertisConnect.dll/api/V1.1/vertis/clientesfat';
+    const fullUrl = proxy + url;
+    const response = await fetch(fullUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -47,7 +48,6 @@ async function insertData() {
         alertParagraph.innerHTML = ('Cliente ' + nome_cliente + ' incluido com sucesso!');
         alertClose.addEventListener('click', function() {
             showAlert.style.display = 'none';
-            getClientes();
             modal.style.display = 'none';
         })
     } else {

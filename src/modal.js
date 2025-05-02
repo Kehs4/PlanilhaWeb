@@ -1,71 +1,59 @@
-
 const switchModal = () => {
-  const modal = document.querySelector('.div-form-clients')
-  const actualStyle = modal.style.display
-  if(actualStyle == 'block') {
-    modal.style.display = 'none'
+  const cod_cliente = document.getElementById('client-cod');
+  const cod_unid_neg = document.getElementById('client-cod-unid');
+  const cod_unid_oper = document.getElementById('client-cod-unid-oper');
+  const modal = document.querySelector('.div-form-clients');
+  const SalvarBtn = document.getElementById('btn-save');
+  const deleteBtn = document.getElementById('btn-delete');
+  const alterarBtn = document.getElementById('btn-update');
+  const inputs = document.querySelectorAll('.btns');
+
+  // Alterna visibilidade do modal
+  if (modal.style.display === 'block') {
+    modal.style.display = 'none';
+  } else {
+    modal.style.display = 'block';
   }
-  else {
-    modal.style.display = 'block'
-  }
-  
-  const SalvarBtn = document.getElementById('btn-save')
-  SalvarBtn.style.display = 'block'
 
-  const deleteBtn = document.getElementById('btn-delete')
-  deleteBtn.style.display = 'block'
-  
-  const saveBtn = document.getElementById('btn-save')
-  saveBtn.style.display = 'block'
+  // Configura visibilidade dos botões
+  if (SalvarBtn) SalvarBtn.style.display = 'block';
+  if (deleteBtn) deleteBtn.style.display = 'block';
+  if (alterarBtn) alterarBtn.style.display = 'block';
 
-  const alterarBtn = document.getElementById('btn-update')
-  alterarBtn.style.display = 'block'
-
-    const btn = document.getElementById('tbody-list')
-    if (btn) {
-      btn.addEventListener('dblclick', switchModal);
-    }
-
-      const inputs = document.querySelectorAll('.btns')
-
-      // Verifique se o botão foi encontrado
-      if (alterarBtn) {
-          // Adiciona um evento de clique ao botão
-          alterarBtn.addEventListener('click', function() {
-              // Habilita os inputs
-              inputs.forEach(input => {
-                  input.disabled = false
-              });
-          })
-      } else {
-          console.error("Botão 'alterarBtn' não encontrado!");
-      };
+  // Adiciona eventos apenas uma vez, se necessário
+  if (alterarBtn && !alterarBtn.dataset.listenerAttached) {
+    alterarBtn.addEventListener('click', () => {
+      inputs.forEach(input => input.disabled = false);
       
+    });
+    alterarBtn.dataset.listenerAttached = 'true'; // Evita múltiplas ligações
+  }
 
-      // Verifique se o botão foi encontrado
-      if (SalvarBtn) {
-          // Adiciona um evento de clique ao botão
-          SalvarBtn.addEventListener('click', function() {
-              // Habilita os inputs
-              inputs.forEach(input => {
-                  input.disabled = true
-              })
-          }
-        )
-      };
+  if (SalvarBtn && !SalvarBtn.dataset.listenerAttached) {
+    SalvarBtn.addEventListener('click', () => {
+      inputs.forEach(input => input.disabled = true);
+    });
+    SalvarBtn.dataset.listenerAttached = 'true';
+  }
 
-      window.onclick = function(event) {
-        const btnClose = document.querySelector('.btn-close')
-        const inputs = document.querySelectorAll('.btns')
-      if (event.target == btnClose) {
-        switchModal()
-        SalvarBtn.style.display = 'none'
-        inputs.forEach(input => {
-          input.disabled = true
-      })
-      }
-    };
+  // Fecha o modal ao clicar fora dele
+  const btnClose = document.querySelector('.btn-close');
+  window.onclick = function(event) {
+    if (event.target === btnClose) {
+      modal.style.display = 'none';
+      cod_cliente.value = '';
+      inputs.forEach(input => input.value = '');
+      if (SalvarBtn) SalvarBtn.style.display = 'none';
+      inputs.forEach(input => input.disabled = true);
+    }
   };
+};
+
+// Registra o evento apenas uma vez ao carregar
+const btn = document.querySelector('tbody-list');
+if (btn) {
+  btn.addEventListener('dblclick', switchModal);
+}
 
     
 export default switchModal;

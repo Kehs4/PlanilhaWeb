@@ -48,6 +48,7 @@
   observacao,
   dth_manutencao_realizada,
   dth_manutencao_futura,
+  ind_data_manutencao,
   ind_avisa,
   ind_script,
   executante,
@@ -59,10 +60,7 @@
   so_server,
   postgres_versao,
   email_cliente,
-  conta_nuvem_backup,
-  senha_conta_nuvem,
   tipo_backup_nuvem,
-  pin_google_desktop,
   tamanho_backup,
   senha_smartvertis,
   ind_qrcode,
@@ -70,9 +68,8 @@
   horario_backups,
   horario_vacuum,
   horarios_reindex,
-  ind_sit_confirm,
-  indstw
-) FROM 'C:/Users/Public/clientesgpi.CSV' DELIMITER ';' CSV HEADER;
+  ind_sit_confirm
+) FROM 'C:/Users/Public/clientesgpi2.CSV' DELIMITER ';' CSV HEADER;
 
 DROP TABLE clientes
 
@@ -128,6 +125,7 @@ CREATE TABLE clientes
   observacao character varying(300),
   dth_manutencao_realizada character varying(100),
   dth_manutencao_futura character varying(100),
+  ind_data_manutencao character varying(5)
   ind_avisa character varying(100),
   ind_script character varying(100),
   executante character varying(100),
@@ -139,10 +137,7 @@ CREATE TABLE clientes
   so_server character varying(100),
   postgres_versao character varying(100),
   email_cliente character varying(200),
-  conta_nuvem_backup character varying(150),
-  senha_conta_nuvem character varying(100),
   tipo_backup_nuvem character varying(100),
-  pin_google_desktop character varying(100),
   tamanho_backup character varying(100),
   senha_smartvertis character varying(100),
   ind_qrcode character varying(15),
@@ -150,8 +145,7 @@ CREATE TABLE clientes
   horario_backups character varying(50),
   horario_vacuum character varying(50),
   horarios_reindex character varying(50),
-  ind_sit_confirm character varying(100),
-  indstw character varying(50)
+  ind_sit_confirm character varying(100)
 )
 
   

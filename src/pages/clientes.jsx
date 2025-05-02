@@ -7,6 +7,7 @@ import saveDataClients from '../api/saveDataClients.js';
 import deleteDataClients from '../api/deleteDataClients.js';
 import validarCamposInvalidos from '../api/validarInputsFetch.js';
 import ChangeInputs from '../api/inputUpdateClients.js';
+import { error } from 'jquery';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -31,7 +32,11 @@ function Clientes() {
     const fetchData = async () => {
       if (cod_cliente) {
         try {
-          const response = await fetch(`http://localhost:3000/clientes/id=${cod_cliente}`);
+          const proxy = 'https://cors-anywhere.herokuapp.com/';
+          const url = 'http://177.11.209.38/vertis/VertisConnect.dll/api/V1.1/vertis/clientesfat';
+          const fullUrl = proxy + url;
+          const response = await fetch(fullUrl + `/id=${cod_cliente}`);
+          //const response = await fetch(`http://localhost:3000/clientes/id=${cod_cliente}`);
           const data = await response.json();
 
           const clientModal = document.getElementById('client-modal');
@@ -180,10 +185,22 @@ function Clientes() {
           const data1 = await ChangeInputs()
 
         } catch (error) {
-          console.error(error);
+          const showAlert = document.getElementById('alert-modal-box')
+          const alertTitle = document.getElementById('alert-title')
+          const alertParagraph = document.getElementById('alert-textp')
+          const alertStatus = document.getElementById('alert-status')
+          const alertClose = document.getElementById('btn-confirm-alert')
+          showAlert.style.display = 'flex';
+            alertTitle.innerHTML = 'Viishh...'
+            alertStatus.style.color = 'red'
+            alertStatus.innerHTML = ('<font color="gray">Status</font> <br>' + error);
+            alertParagraph.innerHTML = ('Não conseguimos carregar os dados do cliente para você :( <br>');
+            alertClose.addEventListener('click', function () {
+                showAlert.style.display = 'none';
+          })
         }
       } else {
-        console.error('Client ID is missing');
+        console.error(error);
       }
     };
     fetchData();
@@ -315,10 +332,11 @@ function Clientes() {
           </div>
         </fieldset>
 
+        
         <div className='div-client-contacts-maintenance'>
           <fieldset className='client-contacts-info'>
             <legend>Contatos</legend>
-
+            <div className='responsive-div'>
             <div>
               <label htmlFor="client-manager">Responsável Unidade</label>
               <input type="text" className='btns' id="client-manager" placeholder='Responsável pela unid.' disabled></input>
@@ -339,11 +357,12 @@ function Clientes() {
               <label htmlFor="client-contact-2">Telefone 2</label>
               <input type="text" className='btns' id="client-contact-2" placeholder='Telefone 2' disabled></input>
             </div>
+            </div>
           </fieldset>
 
           <fieldset className='client-manteinance-info'>
             <legend>Manutenção</legend>
-
+            <div className='responsive-div'>
             <div>
               <label htmlFor="client-licences">Licenças da Unidade</label>
               <input type="text" className='btns' id="client-licences" placeholder="Total de Licenças" disabled></input>
@@ -364,6 +383,7 @@ function Clientes() {
 
               <label htmlFor="client-maintenance-antivirus">Antivírus do Cliente</label>
               <input type="text" className='btns' id="client-maintenance-antivirus" placeholder="Antivírus do Cliente" disabled></input>
+            </div>
             </div>
           </fieldset>
         </div>

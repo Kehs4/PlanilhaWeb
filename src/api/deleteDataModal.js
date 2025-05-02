@@ -1,4 +1,3 @@
-import getClientes from "./getclients";
 
 async function deleteData() {
     const cod_cliente = document.getElementById('client-cod').value;
@@ -47,7 +46,6 @@ async function deleteData() {
                 alertClose.addEventListener('click', function() {
                     showAlert.style.display = 'none';
                     modal.style.display = 'none';
-                    getClientes();
                 })
             } else {
                 const error = await response.text();
