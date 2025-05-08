@@ -35,12 +35,14 @@ function Clientes() {
           const proxy = 'https://cors-anywhere.herokuapp.com/';
           const url = 'http://177.11.209.38/vertis/VertisConnect.dll/api/V1.1/vertis/clientesfat';
           const fullUrl = proxy + url;
-          const response = await fetch(fullUrl + `/id=${cod_cliente}`);
+          
+          const response = await fetch(fullUrl + `/${cod_cliente}`);
           //const response = await fetch(`http://localhost:3000/clientes/id=${cod_cliente}`);
+
           const data = await response.json();
 
           const clientModal = document.getElementById('client-modal');
-          clientModal.innerHTML = data.nome_cliente;
+          clientModal.innerHTML = data[0].nome_cliente;
 
           // Retornando todos os inputs das informações dos Dados dos Clientes.
           const getNomeCliente = document.getElementById('client-name');
@@ -55,16 +57,16 @@ function Clientes() {
           const getAuditCliente = document.getElementById('client-audit')
 
           // Declarando as informações dentro dos inputs dos Dados dos Clientes.
-          getNomeCliente.value = data.nome_cliente || null;
-          getCodUnid.value = data.cod_unid_neg || null;
-          getCodUnidOper.value = data.cod_unid_oper || null;
-          getVersCliente.value = data.versao_vertis_cliente || null;
-          getUpdateCliente.value = data.data_atualizado || null;
-          getVersionSQL.value = data.sql_cliente || null;
-          getCodCliente.value = data.cod_cliente || null;
-          getTipCliente.value = data.tipo_unidade || null;
-          getObsCliente.value = data.observacao || null;
-          getAuditCliente.value = data.ind_auditoria || null;
+          getNomeCliente.value = data[0].nome_cliente || null;
+          getCodUnid.value = data[0].cod_unid_neg || null;
+          getCodUnidOper.value = data[0].cod_unid_oper || null;
+          getVersCliente.value = data[0].versao_vertis_cliente || null;
+          getUpdateCliente.value = data[0].data_atualizado || null;
+          getVersionSQL.value = data[0].sql_cliente || null;
+          getCodCliente.value = data[0].cod_cliente || null;
+          getTipCliente.value = data[0].tipo_unidade || null;
+          getObsCliente.value = data[0].observacao || null;
+          getAuditCliente.value = data[0].ind_auditoria || null;
 
           // Retornando todos os inputs das informações dos Dados de Acesso dos Clientes.
           const getAcessoTVCliente = document.getElementById('client-teamviewer');
@@ -81,18 +83,18 @@ function Clientes() {
           const getPostgreSQLVersion = document.getElementById('client-postgres');
 
           // Declarando as informações dentro dos inputs dos Dados de Acesso dos Clientes.
-          getAcessoTVCliente.value = data.acesso_cliente_teamviewer || null;
-          getAcessoPWTVCliente.value = data.senha_acesso_cliente_teamviewer || null;
-          getAcessoADCliente.value = data.acesso_cliente_anydesk || null;
-          getAcessoPWADCliente.value = data.senha_acesso_cliente_anydesk || null;
-          getUserServer.value = data.usuario_acesso_cliente || null;
-          getUserPasswordServer.value = data.senha_acesso_usuario || null;
-          getAlternativeAccess.value = data.alternativo || null;
-          getIPServidorCliente.value = data.ip_servidor_cliente || null;
-          getPasswordCriptog.value = data.senha_criptografada || null;
-          getPortBD.value = data.porta_bd || null;
-          getSOServer.value = data.so_server || null;
-          getPostgreSQLVersion.value = data.postgres_versao || null;
+          getAcessoTVCliente.value = data[0].acesso_cliente_teamviewer || null;
+          getAcessoPWTVCliente.value = data[0].senha_acesso_cliente_teamviewer || null;
+          getAcessoADCliente.value = data[0].acesso_cliente_anydesk || null;
+          getAcessoPWADCliente.value = data[0].senha_acesso_cliente_anydesk || null;
+          getUserServer.value = data[0].usuario_acesso_cliente || null;
+          getUserPasswordServer.value = data[0].senha_acesso_usuario || null;
+          getAlternativeAccess.value = data[0].alternativo || null;
+          getIPServidorCliente.value = data[0].ip_servidor_cliente || null;
+          getPasswordCriptog.value = data[0].senha_criptografada || null;
+          getPortBD.value = data[0].porta_bd || null;
+          getSOServer.value = data[0].so_server || null;
+          getPostgreSQLVersion.value = data[0].postgres_versao || null;
 
           // Retornando todos os inputs das informações dos Dados dos Contatos dos Clientes.
           const getRespCliente = document.getElementById('client-manager');
@@ -102,11 +104,11 @@ function Clientes() {
           const getContact2Cliente = document.getElementById('client-contact-2');
 
           // Declarando as informações dentro dos inputs dos Dados dos Contatos dos Clientes.
-          getRespCliente.value = data.contatos || null;
-          getEmailCliente.value = data.email_cliente || null;
-          getDDDCliente.value = data.ddd_telefone || null;
-          getContact1Cliente.value = data.telefone1 || null;
-          getContact2Cliente.value = data.telefone2 || null;
+          getRespCliente.value = data[0].contatos || null;
+          getEmailCliente.value = data[0].email_cliente || null;
+          getDDDCliente.value = data[0].ddd_telefone || null;
+          getContact1Cliente.value = data[0].telefone1 || null;
+          getContact2Cliente.value = data[0].telefone2 || null;
 
           // Retornando todos os inputs das informações das Manutenções dos Clientes.
           const getLicCliente = document.getElementById('client-licences');
@@ -117,12 +119,12 @@ function Clientes() {
           const getAntivirus = document.getElementById('client-maintenance-antivirus');
 
           // Declarando as informações dentro dos inputs das Manutenções dos Clientes.
-          getLicCliente.value = data.licencas_cliente || null;
-          getMainCliente.value = data.dth_manutencao_realizada || null;
-          getMainFCliente.value = data.dth_manutencao_futura || null;
-          getAvisaMan.value = data.ind_script || null;
-          getArmazenamento.value = data.manutencao_backup || null;
-          getAntivirus.value = data.antivirus_cliente || null;
+          getLicCliente.value = data[0].licencas_cliente || null;
+          getMainCliente.value = data[0].dth_manutencao_realizada || null;
+          getMainFCliente.value = data[0].dth_manutencao_futura || null;
+          getAvisaMan.value = data[0].ind_script || null;
+          getArmazenamento.value = data[0].manutencao_backup || null;
+          getAntivirus.value = data[0].antivirus_cliente || null;
 
           // Retornando todos os inputs das informações Financeiras dos Clientes.
           const getBoletoCliente = document.getElementById('client-boleto');
@@ -141,20 +143,20 @@ function Clientes() {
           const getITFM = document.getElementById('client-itf-m');
 
           // Declarando as informações dentro dos inputs das informações Financeiras dos Clientes.
-          getBoletoCliente.value = data.ind_banco_boleto || null;
-          getMunicipioCliente.value = data.cliente_municipio || null;
-          getSATCliente.value = data.ind_sat || null;
-          getClientLOL.value = data.ind_lol || null;
-          getClientLOE.value = data.ind_loe || null;
-          getGeradorPDF.value = data.ind_gerador_pdf || null;
-          getFatEmail.value = data.ind_faturamento_email || null;
-          getPortalNovo.value = data.ind_portal_novo || null;
-          getContigencia.value = data.ind_contigencia || null;
-          getExamLdoOnline.value = data.ind_solic_exam_portal || null;
-          getIBPTCliente.value = data.ibt_calculo_correto || null;
-          getNFAPI.value = data.ind_emite_nfs_api || null;
-          getPublS3.value = data.ind_publ_s3 || null;
-          getITFM.value = data.ind_itf_m || null;
+          getBoletoCliente.value = data[0].ind_banco_boleto || null;
+          getMunicipioCliente.value = data[0].cliente_municipio || null;
+          getSATCliente.value = data[0].ind_sat || null;
+          getClientLOL.value = data[0].ind_lol || null;
+          getClientLOE.value = data[0].ind_loe || null;
+          getGeradorPDF.value = data[0].ind_gerador_pdf || null;
+          getFatEmail.value = data[0].ind_faturamento_email || null;
+          getPortalNovo.value = data[0].ind_portal_novo || null;
+          getContigencia.value = data[0].ind_contigencia || null;
+          getExamLdoOnline.value = data[0].ind_solic_exam_portal || null;
+          getIBPTCliente.value = data[0].ibt_calculo_correto || null;
+          getNFAPI.value = data[0].ind_emite_nfs_api || null;
+          getPublS3.value = data[0].ind_publ_s3 || null;
+          getITFM.value = data[0].ind_itf_m || null;
 
           // Retornando todos os inputs dos informações de Backup dos Clientes.
           const getCaminhoBackup = document.getElementById('client-path-backup');
@@ -170,17 +172,17 @@ function Clientes() {
           const getQRCode = document.getElementById('client-qrcode');
 
           // Declarando as informações dentro dos inputs das informações de Backup dos Clientes.
-          getCaminhoBackup.value = data.manutencao_armazenamento || null;
-          getEmailBackup.value = data.conta_nuvem_backup || null;
-          getPasswordBackup.value = data.senha_conta_nuvem || null;
-          getTypeBackup.value = data.tipo_backup_nuvem || null;
-          getPINGoogle.value = data.pin_google_desktop || null;
-          getSizeBackup.value = data.tamanho_backup || null;
-          getTimeBackup.value = data.horario_backups || null;
-          getTimeVaccum.value = data.horario_vacuum || null;
-          getTimeReindex.value = data.horarios_reindex || null;
-          getSenhaSmartVertis.value = data.senha_smartvertis || null;
-          getQRCode.value = data.ind_qrcode || null;
+          getCaminhoBackup.value = data[0].manutencao_armazenamento || null;
+          getEmailBackup.value = data[0].conta_nuvem_backup || null;
+          getPasswordBackup.value = data[0].senha_conta_nuvem || null;
+          getTypeBackup.value = data[0].tipo_backup_nuvem || null;
+          getPINGoogle.value = data[0].pin_google_desktop || null;
+          getSizeBackup.value = data[0].tamanho_backup || null;
+          getTimeBackup.value = data[0].horario_backups || null;
+          getTimeVaccum.value = data[0].horario_vacuum || null;
+          getTimeReindex.value = data[0].horarios_reindex || null;
+          getSenhaSmartVertis.value = data[0].senha_smartvertis || null;
+          getQRCode.value = data[0].ind_qrcode || null;
 
           const data1 = await ChangeInputs()
 

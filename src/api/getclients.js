@@ -1,9 +1,9 @@
  // Função para buscar os clientes
  async function getClientes() {
-    const proxy = 'https://cors-anywhere.herokuapp.com/';
+  const proxy = 'https://cors-anywhere.herokuapp.com/';
       const url = 'http://177.11.209.38/vertis/VertisConnect.dll/api/V1.1/vertis/clientesfat';
       const fullUrl = proxy + url;
-      
+     
       try {
         const response = await fetch(fullUrl)
         const data = await response.json();

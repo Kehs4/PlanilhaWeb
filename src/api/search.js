@@ -10,12 +10,14 @@ async function getSearch(event) {
     }
 
     // Endpoint retornando os dados das informações dos clientes PostgreSQL.
+
     const proxy = 'https://cors-anywhere.herokuapp.com/';
     const url = 'http://177.11.209.38/vertis/VertisConnect.dll/api/V1.1/vertis/clientesfat';
     const fullUrl = proxy + url;
+
     
     try {
-        const response = await fetch(fullUrl, {
+        const response = await fetch(fullUrl + `/${clientId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -36,7 +38,7 @@ async function getSearch(event) {
 
         // Retornando todos os inputs das informações dos Dados dos Clientes.
         const getNomeCliente = document.getElementById('client-name-input');
-        const getCodUnid = document.getElementById('client-cod-unid')
+        const getCodUnid = document.getElementById('client-cod-unid');
         const getCodUnidOper = document.getElementById('client-cod-unid-oper');
         const getCodCliente = document.getElementById('client-cod');
         const getVersCliente = document.getElementById('client-version');

@@ -3,7 +3,7 @@ import '../App.css'
 import getSearch from '../api/search.js'
 import switchModal from '../modal.js'
 import saveData from '../api/saveDataModal.js'
-import $ from 'jquery'
+import $, { proxy } from 'jquery'
 import DT from 'datatables.net-dt'
 import DataTable from 'datatables.net-dt'
 import insertData from '../api/insertData.js'
@@ -21,6 +21,7 @@ function Home() {
   useEffect(() => {
     const carregarScripts = async () => {
       setIsLoading(true);
+      
       const proxy = 'https://cors-anywhere.herokuapp.com/';
       const url = 'http://177.11.209.38/vertis/VertisConnect.dll/api/V1.1/vertis/clientesfat';
       const fullUrl = proxy + url;
@@ -51,7 +52,6 @@ function Home() {
         } else {
             
           };
-
         const tableId = '#clientes-table';
 
         // Garante que DataTables só seja inicializado uma vez
