@@ -215,7 +215,7 @@ function Clientes() {
       <header>
         <nav>
           <div className="nav-title">
-            <img src="/public/menu.svg" className='menu-img' id='menu-vertis-img' alt="Menu Vertis" width={40} height={40} onClick={MenuVertis} />
+            <img src="menu.svg" className='menu-img' id='menu-vertis-img' alt="Menu Vertis" width={40} height={40} onClick={MenuVertis} />
             <Link to='/gpi' target='blank'><img src="./vertisheader.png" width={105} height={35}></img></Link>
             <h1 className="gpi-title">GPI - Planilha de Clientes</h1>
           </div>
@@ -573,7 +573,7 @@ function Clientes() {
       <footer className='footer-vertis'>
         <div className='div-all-footer'>
           <div className='footer-logo'>
-            <a href="https://vertisvet.com.br" target='_blank'><img src='./public/vertislogo.png' width={150} height={100}></img></a>
+            <a href="https://vertisvet.com.br" target='_blank'><img src='vertislogo.png' width={150} height={100}></img></a>
             <p>© 2025 por Vertis.</p>
           </div>
 
